@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jackson Auto Glow | Premium Auto Detailing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue: #0077C8; --blue-lt: #00A3FF; --blue-dk: #004F8B; --navy: #020D1A; --navy2: #041526; --navy3: #071E33; --white: #F0F6FF; --gray: #8AA4BE; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 68px; background: rgba(2,13,26,.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,119,200,.25); }
+    .nav-brand { font-family: 'Rajdhani', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--white); letter-spacing: .08em; text-transform: uppercase; text-decoration: none; }
+    .nav-brand span { color: var(--blue-lt); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--gray); font-size: .9rem; text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--blue); color: #fff; border: none; cursor: pointer; padding: .55rem 1.4rem; border-radius: 4px; font-size: .85rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; transition: background .2s; }
+    .nav-cta:hover { background: var(--blue-lt); }
+    .hero { min-height: 100vh; display: flex; align-items: center; background: radial-gradient(ellipse 80% 60% at 60% 50%, rgba(0,119,200,.18) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 20% 80%, rgba(0,163,255,.08) 0%, transparent 60%), var(--navy); padding: 120px 5% 80px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(0,119,200,.04) 60px); pointer-events: none; }
+    .hero-content { max-width: 680px; position: relative; z-index: 1; }
+    .hero-badge { display: inline-block; font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--blue-lt); background: rgba(0,163,255,.1); border: 1px solid rgba(0,163,255,.3); border-radius: 50px; padding: .35rem 1rem; margin-bottom: 1.6rem; }
+    .hero h1 { font-family: 'Rajdhani', sans-serif; font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 700; line-height: 1.0; letter-spacing: .02em; text-transform: uppercase; margin-bottom: 1.4rem; }
+    .hero h1 span { color: var(--blue-lt); display: block; }
+    .hero p { font-size: 1.1rem; color: var(--gray); line-height: 1.7; max-width: 520px; margin-bottom: 2.5rem; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { background: var(--blue); color: #fff; text-decoration: none; padding: .9rem 2.2rem; border-radius: 4px; font-weight: 600; font-size: .95rem; letter-spacing: .06em; text-transform: uppercase; transition: background .2s, transform .15s; display: inline-block; }
+    .btn-primary:hover { background: var(--blue-lt); transform: translateY(-2px); }
+    .btn-outline { border: 1.5px solid rgba(0,119,200,.6); color: var(--white); text-decoration: none; padding: .9rem 2.2rem; border-radius: 4px; font-weight: 600; font-size: .95rem; letter-spacing: .06em; text-transform: uppercase; transition: border-color .2s, background .2s; display: inline-block; }
+    .btn-outline:hover { border-color: var(--blue-lt); background: rgba(0,119,200,.1); }
+    .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid rgba(0,119,200,.2); }
+    .stat-num { font-family: 'Rajdhani', sans-serif; font-size: 2.4rem; font-weight: 700; color: var(--blue-lt); line-height: 1; }
+    .stat-lbl { font-size: .78rem; color: var(--gray); letter-spacing: .08em; text-transform: uppercase; margin-top: .25rem; }
+    .services { padding: 100px 5%; background: var(--navy2); }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-tag { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 1rem; }
+    .section-header h2 { font-family: 'Rajdhani', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    .section-header p { color: var(--gray); margin-top: .75rem; font-size: .95rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+    .service-card { background: var(--navy3); border: 1px solid rgba(0,119,200,.15); border-radius: 8px; padding: 2rem; transition: border-color .25s, transform .2s; position: relative; overflow: hidden; }
+    .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--blue), var(--blue-lt)); opacity: 0; transition: opacity .25s; }
+    .service-card:hover { border-color: rgba(0,163,255,.4); transform: translateY(-4px); }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .service-card h3 { font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .6rem; color: var(--white); }
+    .service-card p { color: var(--gray); font-size: .9rem; line-height: 1.65; margin-bottom: 1.5rem; }
+    .service-price { font-family: 'Rajdhani', sans-serif; font-size: 1.6rem; font-weight: 700; color: var(--blue-lt); }
+    .service-price span { font-size: .8rem; color: var(--gray); font-family: 'Inter', sans-serif; font-weight: 400; }
+    .trust { padding: 70px 5%; background: var(--navy); display: flex; align-items: center; justify-content: center; gap: 4rem; flex-wrap: wrap; }
+    .trust-item { text-align: center; }
+    .trust-num { font-family: 'Rajdhani', sans-serif; font-size: 3rem; font-weight: 700; color: var(--blue-lt); line-height: 1; }
+    .trust-lbl { color: var(--gray); font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; margin-top: .3rem; }
+    .process { padding: 100px 5%; background: var(--navy2); }
+    .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+    .step { text-align: center; padding: 2rem 1.5rem; }
+    .step-num { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; background: rgba(0,119,200,.15); border: 1.5px solid rgba(0,119,200,.4); font-family: 'Rajdhani', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--blue-lt); margin-bottom: 1.2rem; }
+    .step h3 { font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .5rem; }
+    .step p { color: var(--gray); font-size: .88rem; line-height: 1.6; }
+    .cta-banner { padding: 80px 5%; text-align: center; background: linear-gradient(135deg, var(--blue-dk) 0%, var(--blue) 50%, #0055A0 100%); position: relative; overflow: hidden; }
+    .cta-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(255,255,255,.07) 0%, transparent 70%); }
+    .cta-banner h2 { font-family: 'Rajdhani', sans-serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 1rem; position: relative; }
+    .cta-banner p { color: rgba(255,255,255,.8); margin-bottom: 2rem; font-size: 1rem; position: relative; }
+    .btn-white { background: #fff; color: var(--blue-dk); text-decoration: none; padding: .9rem 2.5rem; border-radius: 4px; font-weight: 700; font-size: .95rem; letter-spacing: .06em; text-transform: uppercase; display: inline-block; transition: transform .15s; position: relative; }
+    .btn-white:hover { transform: translateY(-2px); }
+    footer { background: #010A14; padding: 50px 5% 30px; border-top: 1px solid rgba(0,119,200,.15); }
+    .footer-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; margin-bottom: 2.5rem; }
+    .footer-brand { font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .footer-brand span { color: var(--blue-lt); }
+    .footer-tagline { color: var(--gray); font-size: .82rem; margin-top: .4rem; letter-spacing: .08em; text-transform: uppercase; }
+    .footer-col h4 { font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: .5rem; }
+    .footer-col a { color: var(--gray); text-decoration: none; font-size: .88rem; transition: color .2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { color: var(--gray); font-size: .8rem; }
+    @media (max-width: 768px) { .nav-links { display: none; } .hero-stats { gap: 1.5rem; flex-wrap: wrap; } .trust { gap: 2rem; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-brand" href="#">Jackson <span>Auto Glow</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-cta">Book Now</button>
+  </nav>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Premium Auto Detailing</div>
+      <h1>Make Your Ride <span>Glow.</span></h1>
+      <p>Professional detailing that restores, protects, and transforms your vehicle. Showroom-quality results every single time.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Get a Free Quote</a>
+        <a href="#services" class="btn-outline">View Services</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">500+</div><div class="stat-lbl">Cars Detailed</div></div>
+        <div><div class="stat-num">5 Star</div><div class="stat-lbl">Avg. Rating</div></div>
+        <div><div class="stat-num">3+</div><div class="stat-lbl">Years Experience</div></div>
+      </div>
+    </div>
+  </section>
+  <section class="services" id="services">
+    <div class="section-header">
+      <div class="section-tag">What We Offer</div>
+      <h2>Our Services</h2>
+      <p>From quick washes to full paint correction we have your vehicle covered.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon">🚿</div><h3>Exterior Wash and Dry</h3><p>Hand wash, streak-free dry, tire shine, and window cleaning for a spotless finish.</p><div class="service-price">$49 <span>starting at</span></div></div>
+      <div class="service-card"><div class="service-icon">✨</div><h3>Full Detail</h3><p>Complete interior vacuum, wipe-down, and exterior hand wash with wax protection.</p><div class="service-price">$149 <span>starting at</span></div></div>
+      <div class="service-card"><div class="service-icon">🔬</div><h3>Paint Correction</h3><p>Remove swirl marks, scratches, and oxidation. Restore your paint to showroom condition.</p><div class="service-price">$299 <span>starting at</span></div></div>
+      <div class="service-card"><div class="service-icon">🛡️</div><h3>Ceramic Coating</h3><p>Long-lasting nano-ceramic protection that repels water, dirt, and UV damage for years.</p><div class="service-price">$499 <span>starting at</span></div></div>
+      <div class="service-card"><div class="service-icon">🪟</div><h3>Interior Detail</h3><p>Deep clean of seats, carpets, dash, and all surfaces. Odor elimination included.</p><div class="service-price">$99 <span>starting at</span></div></div>
+      <div class="service-card"><div class="service-icon">🚗</div><h3>Mobile Detailing</h3><p>We come to you at home, office, or anywhere. Same quality, maximum convenience.</p><div class="service-price">$79 <span>starting at</span></div></div>
+    </div>
+  </section>
+  <section class="trust">
+    <div class="trust-item"><div class="trust-num">500+</div><div class="trust-lbl">Happy Customers</div></div>
+    <div class="trust-item"><div class="trust-num">100%</div><div class="trust-lbl">Satisfaction Rate</div></div>
+    <div class="trust-item"><div class="trust-num">3+</div><div class="trust-lbl">Years in Business</div></div>
+    <div class="trust-item"><div class="trust-num">24h</div><div class="trust-lbl">Booking Response</div></div>
+  </section>
+  <section class="process" id="process">
+    <div class="section-header">
+      <div class="section-tag">How It Works</div>
+      <h2>Our Process</h2>
+      <p>Simple, transparent, and built around your schedule.</p>
+    </div>
+    <div class="process-steps">
+      <div class="step"><div class="step-num">01</div><h3>Book Online</h3><p>Choose your service, pick a date and time that works for you.</p></div>
+      <div class="step"><div class="step-num">02</div><h3>We Show Up</h3><p>Our team arrives on time with all professional equipment and premium products.</p></div>
+      <div class="step"><div class="step-num">03</div><h3>We Detail</h3><p>Every inch of your vehicle is treated with precision, care, and the right techniques.</p></div>
+      <div class="step"><div class="step-num">04</div><h3>You Shine</h3><p>Drive away in a vehicle that looks and feels brand new. Guaranteed satisfaction.</p></div>
+    </div>
+  </section>
+  <section class="cta-banner" id="contact">
+    <h2>Ready to Glow?</h2>
+    <p>Book your detail today and get a free quote within 24 hours.</p>
+    <a href="tel:+1234567890" class="btn-white">Call or Text Us Now</a>
+  </section>
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Jackson <span>Auto Glow</span></div>
+        <div class="footer-tagline">Driven to Shine</div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Exterior Wash</a></li>
+          <li><a href="#">Full Detail</a></li>
+          <li><a href="#">Paint Correction</a></li>
+          <li><a href="#">Ceramic Coating</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+1234567890">(123) 456-7890</a></li>
+          <li><a href="mailto:info@jacksonautoglow.com">info@jacksonautoglow.com</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>2026 Jackson Auto Glow. All rights reserved.</p>
+      <p>Driven to Shine.</p>
+    </div>
+  </footer>
+</body>
+</html>
