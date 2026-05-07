@@ -1,178 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jackson Auto Glow | Premium Auto Detailing</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --blue: #0077C8; --blue-lt: #00A3FF; --blue-dk: #004F8B; --navy: #020D1A; --navy2: #041526; --navy3: #071E33; --white: #F0F6FF; --gray: #8AA4BE; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
-    nav { position: fixed; top: 0; width: 100%; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 68px; background: rgba(2,13,26,.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,119,200,.25); }
-    .nav-brand { font-family: 'Rajdhani', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--white); letter-spacing: .08em; text-transform: uppercase; text-decoration: none; }
-    .nav-brand span { color: var(--blue-lt); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: var(--gray); font-size: .9rem; text-decoration: none; transition: color .2s; }
-    .nav-links a:hover { color: var(--white); }
-    .nav-cta { background: var(--blue); color: #fff; border: none; cursor: pointer; padding: .55rem 1.4rem; border-radius: 4px; font-size: .85rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; transition: background .2s; }
-    .nav-cta:hover { background: var(--blue-lt); }
-    .hero { min-height: 100vh; display: flex; align-items: center; background: radial-gradient(ellipse 80% 60% at 60% 50%, rgba(0,119,200,.18) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 20% 80%, rgba(0,163,255,.08) 0%, transparent 60%), var(--navy); padding: 120px 5% 80px; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(0,119,200,.04) 60px); pointer-events: none; }
-    .hero-content { max-width: 680px; position: relative; z-index: 1; }
-    .hero-badge { display: inline-block; font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--blue-lt); background: rgba(0,163,255,.1); border: 1px solid rgba(0,163,255,.3); border-radius: 50px; padding: .35rem 1rem; margin-bottom: 1.6rem; }
-    .hero h1 { font-family: 'Rajdhani', sans-serif; font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 700; line-height: 1.0; letter-spacing: .02em; text-transform: uppercase; margin-bottom: 1.4rem; }
-    .hero h1 span { color: var(--blue-lt); display: block; }
-    .hero p { font-size: 1.1rem; color: var(--gray); line-height: 1.7; max-width: 520px; margin-bottom: 2.5rem; }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary { background: var(--blue); color: #fff; text-decoration: none; padding: .9rem 2.2rem; border-radius: 4px; font-weight: 600; font-size: .95rem; letter-spacing: .06em; text-transform: uppercase; transition: background .2s, transform .15s; display: inline-block; }
-    .btn-primary:hover { background: var(--blue-lt); transform: translateY(-2px); }
-    .btn-outline { border: 1.5px solid rgba(0,119,200,.6); color: var(--white); text-decoration: none; padding: .9rem 2.2rem; border-radius: 4px; font-weight: 600; font-size: .95rem; letter-spacing: .06em; text-transform: uppercase; transition: border-color .2s, background .2s; display: inline-block; }
-    .btn-outline:hover { border-color: var(--blue-lt); background: rgba(0,119,200,.1); }
-    .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid rgba(0,119,200,.2); }
-    .stat-num { font-family: 'Rajdhani', sans-serif; font-size: 2.4rem; font-weight: 700; color: var(--blue-lt); line-height: 1; }
-    .stat-lbl { font-size: .78rem; color: var(--gray); letter-spacing: .08em; text-transform: uppercase; margin-top: .25rem; }
-    .services { padding: 100px 5%; background: var(--navy2); }
-    .section-header { text-align: center; margin-bottom: 60px; }
-    .section-tag { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 1rem; }
-    .section-header h2 { font-family: 'Rajdhani', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
-    .section-header p { color: var(--gray); margin-top: .75rem; font-size: .95rem; }
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
-    .service-card { background: var(--navy3); border: 1px solid rgba(0,119,200,.15); border-radius: 8px; padding: 2rem; transition: border-color .25s, transform .2s; position: relative; overflow: hidden; }
-    .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--blue), var(--blue-lt)); opacity: 0; transition: opacity .25s; }
-    .service-card:hover { border-color: rgba(0,163,255,.4); transform: translateY(-4px); }
-    .service-card:hover::before { opacity: 1; }
-    .service-icon { font-size: 2rem; margin-bottom: 1rem; }
-    .service-card h3 { font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .6rem; color: var(--white); }
-    .service-card p { color: var(--gray); font-size: .9rem; line-height: 1.65; margin-bottom: 1.5rem; }
-    .service-price { font-family: 'Rajdhani', sans-serif; font-size: 1.6rem; font-weight: 700; color: var(--blue-lt); }
-    .service-price span { font-size: .8rem; color: var(--gray); font-family: 'Inter', sans-serif; font-weight: 400; }
-    .trust { padding: 70px 5%; background: var(--navy); display: flex; align-items: center; justify-content: center; gap: 4rem; flex-wrap: wrap; }
-    .trust-item { text-align: center; }
-    .trust-num { font-family: 'Rajdhani', sans-serif; font-size: 3rem; font-weight: 700; color: var(--blue-lt); line-height: 1; }
-    .trust-lbl { color: var(--gray); font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; margin-top: .3rem; }
-    .process { padding: 100px 5%; background: var(--navy2); }
-    .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
-    .step { text-align: center; padding: 2rem 1.5rem; }
-    .step-num { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; background: rgba(0,119,200,.15); border: 1.5px solid rgba(0,119,200,.4); font-family: 'Rajdhani', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--blue-lt); margin-bottom: 1.2rem; }
-    .step h3 { font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .5rem; }
-    .step p { color: var(--gray); font-size: .88rem; line-height: 1.6; }
-    .cta-banner { padding: 80px 5%; text-align: center; background: linear-gradient(135deg, var(--blue-dk) 0%, var(--blue) 50%, #0055A0 100%); position: relative; overflow: hidden; }
-    .cta-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(255,255,255,.07) 0%, transparent 70%); }
-    .cta-banner h2 { font-family: 'Rajdhani', sans-serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 1rem; position: relative; }
-    .cta-banner p { color: rgba(255,255,255,.8); margin-bottom: 2rem; font-size: 1rem; position: relative; }
-    .btn-white { background: #fff; color: var(--blue-dk); text-decoration: none; padding: .9rem 2.5rem; border-radius: 4px; font-weight: 700; font-size: .95rem; letter-spacing: .06em; text-transform: uppercase; display: inline-block; transition: transform .15s; position: relative; }
-    .btn-white:hover { transform: translateY(-2px); }
-    footer { background: #010A14; padding: 50px 5% 30px; border-top: 1px solid rgba(0,119,200,.15); }
-    .footer-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; margin-bottom: 2.5rem; }
-    .footer-brand { font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-    .footer-brand span { color: var(--blue-lt); }
-    .footer-tagline { color: var(--gray); font-size: .82rem; margin-top: .4rem; letter-spacing: .08em; text-transform: uppercase; }
-    .footer-col h4 { font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 1rem; }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: .5rem; }
-    .footer-col a { color: var(--gray); text-decoration: none; font-size: .88rem; transition: color .2s; }
-    .footer-col a:hover { color: var(--white); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .footer-bottom p { color: var(--gray); font-size: .8rem; }
-    @media (max-width: 768px) { .nav-links { display: none; } .hero-stats { gap: 1.5rem; flex-wrap: wrap; } .trust { gap: 2rem; } }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Jackson Auto Glow | Premium Auto Detailing</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#0077C8;--blue-lt:#00A3FF;--blue-dk:#004F8B;--blue-glow:rgba(0,163,255,.18);--navy:#060E1A;--navy2:#0A1628;--navy3:#0D1E35;--white:#EEF4FF;--gray:#7A96B4;--border:rgba(0,119,200,.18)}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--navy)}
+::-webkit-scrollbar-thumb{background:var(--blue-dk);border-radius:3px}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:72px;background:rgba(6,14,26,.7);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background .3s}
+nav.scrolled{background:rgba(6,14,26,.95)}
+.nav-brand{font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--white)}
+.nav-brand span{color:var(--blue-lt)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:var(--gray);font-size:.88rem;text-decoration:none;letter-spacing:.04em;transition:color .2s;font-weight:500}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:linear-gradient(135deg,var(--blue),var(--blue-lt));color:#fff;border:none;cursor:pointer;padding:.6rem 1.6rem;border-radius:50px;font-size:.85rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;transition:opacity .2s,transform .15s;font-family:'Outfit',sans-serif}
+.nav-cta:hover{opacity:.85;transform:translateY(-1px)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:130px 6% 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 70% 40%,rgba(0,119,200,.14) 0%,transparent 65%),radial-gradient(ellipse 50% 50% at 10% 80%,rgba(0,163,255,.07) 0%,transparent 60%),var(--navy);z-index:0}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,119,200,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,119,200,.05) 1px,transparent 1px);background-size:60px 60px;z-index:0;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%)}
+.hero-content{position:relative;z-index:1;max-width:680px}
+.hero-pill{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-lt);background:rgba(0,163,255,.08);border:1px solid rgba(0,163,255,.25);border-radius:50px;padding:.4rem 1.1rem;margin-bottom:2rem}
+.hero-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue-lt);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(3rem,6.5vw,5.8rem);font-weight:800;line-height:.95;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:1.6rem}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--blue-lt),#60CFFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
+.hero-sub{font-size:1.05rem;color:var(--gray);line-height:1.75;max-width:500px;margin-bottom:2.8rem;font-weight:400}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:4rem}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--blue-lt));color:#fff;text-decoration:none;padding:1rem 2.4rem;border-radius:50px;font-weight:600;font-size:.95rem;letter-spacing:.04em;display:inline-block;transition:opacity .2s,transform .15s;box-shadow:0 8px 32px rgba(0,119,200,.3)}
+.btn-primary:hover{opacity:.88;transform:translateY(-2px)}
+.btn-ghost{border:1.5px solid rgba(0,119,200,.5);color:var(--white);text-decoration:none;padding:1rem 2.4rem;border-radius:50px;font-weight:500;font-size:.95rem;display:inline-block;transition:all .2s}
+.btn-ghost:hover{border-color:var(--blue-lt);background:rgba(0,119,200,.08)}
+.hero-stats{display:flex;gap:3.5rem;padding-top:2.5rem;border-top:1px solid var(--border)}
+.stat-val{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--blue-lt);line-height:1}
+.stat-lbl{font-size:.72rem;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem}
+
+/* SECTION COMMON */
+.section{padding:100px 6%}
+.section-alt{background:var(--navy2)}
+.s-label{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:1rem}
+.s-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;text-transform:uppercase;letter-spacing:.01em;margin-bottom:.75rem}
+.s-sub{color:var(--gray);font-size:.95rem;line-height:1.7;max-width:540px}
+.section-header{margin-bottom:56px}
+
+/* SERVICES - PRICING TABLES */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto}
+.pricing-card{background:var(--navy3);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s;position:relative}
+.pricing-card:hover{transform:translateY(-6px);border-color:rgba(0,163,255,.4);box-shadow:0 20px 60px rgba(0,0,0,.3),0 0 0 1px rgba(0,163,255,.15)}
+.pricing-card.featured{border-color:rgba(0,163,255,.4);box-shadow:0 0 0 1px rgba(0,163,255,.15)}
+.card-top{padding:1.8rem 1.8rem 0}
+.card-badge{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:linear-gradient(135deg,var(--blue),var(--blue-lt));color:#fff;padding:.3rem .85rem;border-radius:50px;margin-bottom:1rem}
+.card-icon{font-size:2rem;margin-bottom:.8rem;display:block}
+.card-title{font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.5rem}
+.card-desc{color:var(--gray);font-size:.88rem;line-height:1.65;margin-bottom:1.4rem}
+.card-divider{height:1px;background:var(--border);margin:0 1.8rem}
+.price-table{padding:1.4rem 1.8rem 1.8rem}
+.price-table-title{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:.9rem}
+.price-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid rgba(0,119,200,.08)}
+.price-row:last-child{border-bottom:none}
+.price-vehicle{font-size:.88rem;color:var(--gray);font-weight:400}
+.price-amt{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--blue-lt)}
+
+/* ADD-ONS */
+.addons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;max-width:1100px;margin:0 auto}
+.addon-card{background:var(--navy3);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.6rem;display:flex;align-items:center;gap:1rem;transition:border-color .2s,transform .2s}
+.addon-card:hover{border-color:rgba(0,163,255,.35);transform:translateY(-3px)}
+.addon-icon{font-size:1.6rem;flex-shrink:0}
+.addon-name{font-size:.9rem;font-weight:600;color:var(--white);margin-bottom:.2rem}
+.addon-price{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--blue-lt)}
+
+/* TRUST STRIP */
+.trust-strip{padding:60px 6%;background:var(--navy);display:flex;align-items:center;justify-content:center;gap:5rem;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.trust-item{text-align:center}
+.trust-num{font-family:'Syne',sans-serif;font-size:2.8rem;font-weight:800;background:linear-gradient(135deg,var(--blue-lt),#60CFFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.trust-lbl{color:var(--gray);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;margin-top:.35rem}
+
+/* REVIEWS SLIDER */
+.reviews-section{padding:100px 6%;background:var(--navy2);overflow:hidden}
+.reviews-track-wrap{overflow:hidden;position:relative;margin-top:48px}
+.reviews-track-wrap::before,.reviews-track-wrap::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:10;pointer-events:none}
+.reviews-track-wrap::before{left:0;background:linear-gradient(90deg,var(--navy2),transparent)}
+.reviews-track-wrap::after{right:0;background:linear-gradient(-90deg,var(--navy2),transparent)}
+.reviews-track{display:flex;gap:1.2rem;animation:scroll-reviews 32s linear infinite;width:max-content}
+.reviews-track:hover{animation-play-state:paused}
+@keyframes scroll-reviews{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.review-card{background:var(--navy3);border:1px solid var(--border);border-radius:14px;padding:1.6rem 1.8rem;width:300px;flex-shrink:0;transition:border-color .2s}
+.review-card:hover{border-color:rgba(0,163,255,.3)}
+.stars{color:#F5C518;font-size:.9rem;letter-spacing:.1em;margin-bottom:.8rem}
+.review-text{color:var(--gray);font-size:.88rem;line-height:1.7;margin-bottom:1rem;font-style:italic}
+.review-author{display:flex;align-items:center;gap:.75rem}
+.review-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue-dk),var(--blue-lt));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:.85rem;color:#fff;flex-shrink:0}
+.review-name{font-size:.88rem;font-weight:600;color:var(--white)}
+.review-vehicle{font-size:.75rem;color:var(--gray)}
+
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;max-width:1000px;margin:0 auto}
+.process-step{text-align:center;padding:2.2rem 1.5rem;background:var(--navy3);border:1px solid var(--border);border-radius:14px;transition:border-color .2s,transform .2s}
+.process-step:hover{border-color:rgba(0,163,255,.3);transform:translateY(-4px)}
+.step-num{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,rgba(0,79,139,.6),rgba(0,119,200,.3));border:1.5px solid rgba(0,163,255,.3);font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--blue-lt);margin-bottom:1.3rem}
+.step-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.6rem}
+.step-desc{color:var(--gray);font-size:.85rem;line-height:1.65}
+
+/* CTA */
+.cta-section{padding:100px 6%;text-align:center;position:relative;overflow:hidden;background:var(--navy)}
+.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(0,119,200,.15) 0%,transparent 70%);pointer-events:none}
+.cta-section h2{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:800;text-transform:uppercase;letter-spacing:.01em;margin-bottom:1rem;position:relative}
+.cta-section p{color:var(--gray);max-width:480px;margin:0 auto 2.5rem;font-size:1rem;line-height:1.7;position:relative}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative}
+.btn-white{background:#fff;color:var(--blue-dk);text-decoration:none;padding:1rem 2.6rem;border-radius:50px;font-weight:700;font-size:.95rem;letter-spacing:.04em;display:inline-block;transition:transform .15s,box-shadow .15s;box-shadow:0 8px 30px rgba(255,255,255,.12)}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(255,255,255,.18)}
+
+/* FOOTER */
+footer{background:#030912;padding:60px 6% 30px;border-top:1px solid var(--border)}
+.footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:3rem;margin-bottom:3rem}
+.footer-brand-name{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.4rem}
+.footer-brand-name span{color:var(--blue-lt)}
+.footer-tagline{color:var(--gray);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+.footer-col h4{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:1.2rem}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:.55rem}
+.footer-col a{color:var(--gray);text-decoration:none;font-size:.88rem;transition:color .2s}
+.footer-col a:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{color:var(--gray);font-size:.78rem}
+
+/* FADE IN */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){.nav-links{display:none}.hero-stats{gap:2rem;flex-wrap:wrap}.trust-strip{gap:2.5rem}}
+</style>
 </head>
 <body>
-  <nav>
-    <a class="nav-brand" href="#">Jackson <span>Auto Glow</span></a>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="nav-cta">Book Now</button>
-  </nav>
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">Premium Auto Detailing</div>
-      <h1>Make Your Ride <span>Glow.</span></h1>
-      <p>Professional detailing that restores, protects, and transforms your vehicle. Showroom-quality results every single time.</p>
-      <div class="hero-btns">
-        <a href="#contact" class="btn-primary">Get a Free Quote</a>
-        <a href="#services" class="btn-outline">View Services</a>
+
+<nav id="nav">
+  <a class="nav-brand" href="#">Jackson <span>Auto Glow</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#addons">Add-Ons</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Now</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content fade-in">
+    <div class="hero-pill">Now Booking — Same Week Availability</div>
+    <h1>Your Ride Deserves <em>The Glow.</em></h1>
+    <p class="hero-sub">Jackson Auto Glow delivers showroom-quality detailing with professional products, precision technique, and results that speak for themselves.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-primary">View Pricing →</a>
+      <a href="#contact" class="btn-ghost">Get a Quote</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-val">500+</div><div class="stat-lbl">Cars Detailed</div></div>
+      <div><div class="stat-val">5★</div><div class="stat-lbl">Avg Rating</div></div>
+      <div><div class="stat-val">3+</div><div class="stat-lbl">Yrs Experience</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item"><div class="trust-num">500+</div><div class="trust-lbl">Happy Customers</div></div>
+  <div class="trust-item"><div class="trust-num">100%</div><div class="trust-lbl">Satisfaction</div></div>
+  <div class="trust-item"><div class="trust-num">3+</div><div class="trust-lbl">Years in Business</div></div>
+  <div class="trust-item"><div class="trust-num">24h</div><div class="trust-lbl">Response Time</div></div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-header fade-in">
+    <div class="s-label">Transparent Pricing</div>
+    <h2 class="s-title">Our Services</h2>
+    <p class="s-sub">Every price listed — no surprises. Pricing varies by vehicle size so you always know what to expect.</p>
+  </div>
+  <div class="services-grid">
+
+    <div class="pricing-card fade-in">
+      <div class="card-top">
+        <span class="card-icon">🚿</span>
+        <div class="card-title">Exterior Detail</div>
+        <p class="card-desc">Hand wash, streak-free dry, tire shine, window cleaning, and wheel detail for a spotless exterior finish.</p>
       </div>
-      <div class="hero-stats">
-        <div><div class="stat-num">500+</div><div class="stat-lbl">Cars Detailed</div></div>
-        <div><div class="stat-num">5 Star</div><div class="stat-lbl">Avg. Rating</div></div>
-        <div><div class="stat-num">3+</div><div class="stat-lbl">Years Experience</div></div>
-      </div>
-    </div>
-  </section>
-  <section class="services" id="services">
-    <div class="section-header">
-      <div class="section-tag">What We Offer</div>
-      <h2>Our Services</h2>
-      <p>From quick washes to full paint correction we have your vehicle covered.</p>
-    </div>
-    <div class="services-grid">
-      <div class="service-card"><div class="service-icon">🚿</div><h3>Exterior Wash and Dry</h3><p>Hand wash, streak-free dry, tire shine, and window cleaning for a spotless finish.</p><div class="service-price">$49 <span>starting at</span></div></div>
-      <div class="service-card"><div class="service-icon">✨</div><h3>Full Detail</h3><p>Complete interior vacuum, wipe-down, and exterior hand wash with wax protection.</p><div class="service-price">$149 <span>starting at</span></div></div>
-      <div class="service-card"><div class="service-icon">🔬</div><h3>Paint Correction</h3><p>Remove swirl marks, scratches, and oxidation. Restore your paint to showroom condition.</p><div class="service-price">$299 <span>starting at</span></div></div>
-      <div class="service-card"><div class="service-icon">🛡️</div><h3>Ceramic Coating</h3><p>Long-lasting nano-ceramic protection that repels water, dirt, and UV damage for years.</p><div class="service-price">$499 <span>starting at</span></div></div>
-      <div class="service-card"><div class="service-icon">🪟</div><h3>Interior Detail</h3><p>Deep clean of seats, carpets, dash, and all surfaces. Odor elimination included.</p><div class="service-price">$99 <span>starting at</span></div></div>
-      <div class="service-card"><div class="service-icon">🚗</div><h3>Mobile Detailing</h3><p>We come to you at home, office, or anywhere. Same quality, maximum convenience.</p><div class="service-price">$79 <span>starting at</span></div></div>
-    </div>
-  </section>
-  <section class="trust">
-    <div class="trust-item"><div class="trust-num">500+</div><div class="trust-lbl">Happy Customers</div></div>
-    <div class="trust-item"><div class="trust-num">100%</div><div class="trust-lbl">Satisfaction Rate</div></div>
-    <div class="trust-item"><div class="trust-num">3+</div><div class="trust-lbl">Years in Business</div></div>
-    <div class="trust-item"><div class="trust-num">24h</div><div class="trust-lbl">Booking Response</div></div>
-  </section>
-  <section class="process" id="process">
-    <div class="section-header">
-      <div class="section-tag">How It Works</div>
-      <h2>Our Process</h2>
-      <p>Simple, transparent, and built around your schedule.</p>
-    </div>
-    <div class="process-steps">
-      <div class="step"><div class="step-num">01</div><h3>Book Online</h3><p>Choose your service, pick a date and time that works for you.</p></div>
-      <div class="step"><div class="step-num">02</div><h3>We Show Up</h3><p>Our team arrives on time with all professional equipment and premium products.</p></div>
-      <div class="step"><div class="step-num">03</div><h3>We Detail</h3><p>Every inch of your vehicle is treated with precision, care, and the right techniques.</p></div>
-      <div class="step"><div class="step-num">04</div><h3>You Shine</h3><p>Drive away in a vehicle that looks and feels brand new. Guaranteed satisfaction.</p></div>
-    </div>
-  </section>
-  <section class="cta-banner" id="contact">
-    <h2>Ready to Glow?</h2>
-    <p>Book your detail today and get a free quote within 24 hours.</p>
-    <a href="tel:+1234567890" class="btn-white">Call or Text Us Now</a>
-  </section>
-  <footer>
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand">Jackson <span>Auto Glow</span></div>
-        <div class="footer-tagline">Driven to Shine</div>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="#">Exterior Wash</a></li>
-          <li><a href="#">Full Detail</a></li>
-          <li><a href="#">Paint Correction</a></li>
-          <li><a href="#">Ceramic Coating</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="tel:+1234567890">(123) 456-7890</a></li>
-          <li><a href="mailto:info@jacksonautoglow.com">info@jacksonautoglow.com</a></li>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">Facebook</a></li>
-        </ul>
+      <div class="card-divider"></div>
+      <div class="price-table">
+        <div class="price-table-title">Pricing by Vehicle</div>
+        <div class="price-row"><span class="price-vehicle">Car</span><span class="price-amt">$175</span></div>
+        <div class="price-row"><span class="price-vehicle">SUV / Crossover</span><span class="price-amt">$210</span></div>
+        <div class="price-row"><span class="price-vehicle">Truck / XL SUV</span><span class="price-amt">$240</span></div>
+        <div class="price-row"><span class="price-vehicle">Van / Large Truck</span><span class="price-amt">$275+</span></div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>2026 Jackson Auto Glow. All rights reserved.</p>
-      <p>Driven to Shine.</p>
+
+    <div class="pricing-card featured fade-in">
+      <div class="card-top">
+        <div class="card-badge">Most Popular</div>
+        <span class="card-icon">✨</span>
+        <div class="card-title">Full Detail</div>
+        <p class="card-desc">Complete interior + exterior detailing package. Deep clean inside and out — the full treatment your vehicle deserves.</p>
+      </div>
+      <div class="card-divider"></div>
+      <div class="price-table">
+        <div class="price-table-title">Pricing by Vehicle</div>
+        <div class="price-row"><span class="price-vehicle">Car</span><span class="price-amt">$270</span></div>
+        <div class="price-row"><span class="price-vehicle">SUV / Crossover</span><span class="price-amt">$310</span></div>
+        <div class="price-row"><span class="price-vehicle">Truck / XL SUV</span><span class="price-amt">$350</span></div>
+        <div class="price-row"><span class="price-vehicle">Van / Large Truck</span><span class="price-amt">$400</span></div>
+      </div>
     </div>
-  </footer>
+
+    <div class="pricing-card fade-in">
+      <div class="card-top">
+        <span class="card-icon">🪟</span>
+        <div class="card-title">Interior Detail</div>
+        <p class="card-desc">Deep vacuum, wipe-down of all surfaces, dashboard, console, door panels, and seats. Fresh and clean inside.</p>
+      </div>
+      <div class="card-divider"></div>
+      <div class="price-table">
+        <div class="price-table-title">Pricing by Vehicle</div>
+        <div class="price-row"><span class="price-vehicle">Car</span><span class="price-amt">$145</span></div>
+        <div class="price-row"><span class="price-vehicle">SUV / Crossover</span><span class="price-amt">$175</span></div>
+        <div class="price-row"><span class="price-vehicle">Truck / XL SUV</span><span class="price-amt">$195</span></div>
+        <div class="price-row"><span class="price-vehicle">Van / Large Truck</span><span class="price-amt">$225</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section class="section section-alt" id="addons">
+  <div class="section-header fade-in">
+    <div class="s-label">Upgrade Your Service</div>
+    <h2 class="s-title">Add-Ons & Extras</h2>
+    <p class="s-sub">Customize your detail with premium add-ons. Just let us know when you book.</p>
+  </div>
+  <div class="addons-grid fade-in">
+    <div class="addon-card"><span class="addon-icon">💨</span><div><div class="addon-name">Odor Elimination</div><div class="addon-price">$40+</div></div></div>
+    <div class="addon-card"><span class="addon-icon">🔧</span><div><div class="addon-name">Engine Bay Clean</div><div class="addon-price">$60+</div></div></div>
+    <div class="addon-card"><span class="addon-icon">🛡️</span><div><div class="addon-name">Ceramic Sealant (6 mo.)</div><div class="addon-price">$75+</div></div></div>
+    <div class="addon-card"><span class="addon-icon">💡</span><div><div class="addon-name">Headlight Restoration</div><div class="addon-price">$45</div></div></div>
+    <div class="addon-card"><span class="addon-icon">🪑</span><div><div class="addon-name">Leather Treatment</div><div class="addon-price">$35+</div></div></div>
+    <div class="addon-card"><span class="addon-icon">🎨</span><div><div class="addon-name">Paint Protection Film</div><div class="addon-price">$400–$800+</div></div></div>
+    <div class="addon-card"><span class="addon-icon">✉️</span><div><div class="addon-name">More Services Available</div><div class="addon-price">Quote on Request</div></div></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section" id="reviews">
+  <div class="section-header fade-in" style="text-align:center">
+    <div class="s-label">What Customers Say</div>
+    <h2 class="s-title">5-Star Reviews</h2>
+  </div>
+  <div class="reviews-track-wrap">
+    <div class="reviews-track" id="reviewsTrack">
+      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"My truck looks brand new. They got every inch — inside and out. Worth every penny."</p><div class="review-author"><div class="review-avatar">DM</div><div><div class="review-name">D. Mitchell</div><div class="review-vehicle">F-150 Truck · Full Detail</div></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Booked a full detail on my SUV. The interior looked like it just came off the lot. Incredible work."</p><div class="review-author"><div class="review-avatar">SA</div><div><div class="review-name">S. Adams</div><div class="review-vehicle">Tahoe SUV · Full Detail</div></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Super professional, on time, and the exterior shine was insane. Highly recommend!"</p><div class="review-author"><div class="review-avatar">JR</div><div><div class="review-name">J. Rivera</div><div class="review-vehicle">Sedan · Exterior Detail</div></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Got the odor treatment + full detail. The car smells and looks amazing. Great pricing too."</p><div class="review-author"><div class="review-avatar">KL</div><div><div class="review-name">K. Lee</div><div class="review-vehicle">Crossover · Full Detail + Add-Ons</div></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Did the ceramic sealant on my car. It's been three months and still beading water perfectly."</p><div class="review-author"><div class="review-avatar">TW</div><div><div class="review-name">T. Williams</div><div class="review-vehicle">Sedan · Ceramic Sealant</div></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Headlight restoration was unreal — from foggy yellow to crystal clear. Couldn't believe it."</p><div class="review-author"><div class="review-avatar">MP</div><div><div class="review-name">M. Parker</div><div class="review-vehicle">Truck · Headlight Restoration</div></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Quick turnaround, great communication, and the van looks spotless. Will be a repeat customer."</p><div class="review-author"><div class="review-avatar">CB</div><div><div class="review-name">C. Brooks</div><div class="review-vehicle">Cargo Van · Full Detail</div></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Leather seats look rejuvenated. The leather treatment was the best decision I made."</p><div class="review-author"><div class="review-avatar">AJ</div><div><div class="review-name">A. Jackson</div><div class="review-vehicle">SUV · Interior + Leather</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" id="process">
+  <div class="section-header fade-in" style="text-align:center;margin-left:auto;margin-right:auto">
+    <div class="s-label">How It Works</div>
+    <h2 class="s-title">Simple Process</h2>
+    <p class="s-sub" style="margin:0 auto">Easy booking, professional service, guaranteed results.</p>
+  </div>
+  <div class="process-grid fade-in">
+    <div class="process-step"><div class="step-num">01</div><div class="step-title">Book Online</div><p class="step-desc">Select your service and vehicle size. Get a quote in seconds — no hassle.</p></div>
+    <div class="process-step"><div class="step-num">02</div><div class="step-title">We Show Up</div><p class="step-desc">Our team arrives on time with pro-grade equipment and premium products.</p></div>
+    <div class="process-step"><div class="step-num">03</div><div class="step-title">We Detail</div><p class="step-desc">Every surface treated with precision, care, and the right technique.</p></div>
+    <div class="process-step"><div class="step-num">04</div><div class="step-title">You Shine</div><p class="step-desc">Drive off in a vehicle that looks and feels brand new. Guaranteed.</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-glow"></div>
+  <h2 class="fade-in">Ready to <em style="font-style:normal;background:linear-gradient(135deg,var(--blue-lt),#60CFFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Glow?</em></h2>
+  <p class="fade-in">Book your detail today or reach out for a custom quote on premium services.</p>
+  <div class="cta-btns fade-in">
+    <a href="tel:+1234567890" class="btn-primary">📞 Call or Text Us</a>
+    <a href="mailto:info@jacksonautoglow.com" class="btn-white">✉️ Email Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">Jackson <span>Auto Glow</span></div>
+      <div class="footer-tagline">Driven to Shine</div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Exterior Detail</a></li>
+        <li><a href="#services">Interior Detail</a></li>
+        <li><a href="#services">Full Detail</a></li>
+        <li><a href="#addons">Add-Ons</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+1234567890">(123) 456-7890</a></li>
+        <li><a href="mailto:info@jacksonautoglow.com">info@jacksonautoglow.com</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Jackson Auto Glow. All rights reserved.</p>
+    <p>Driven to Shine.</p>
+  </div>
+</footer>
+
+<script>
+// Nav scroll effect
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
+});
+
+// Fade-in on scroll
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:0.12});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+// Duplicate reviews for seamless loop
+const track=document.getElementById('reviewsTrack');
+track.innerHTML+=track.innerHTML;
+</script>
 </body>
 </html>
