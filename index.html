@@ -3,23 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jackson Auto Glow | Premium Mobile Detailing — Jackson & Cape Girardeau, MO</title>
-<meta name="description" content="Jackson Auto Glow — elite mobile detailing serving Jackson and Cape Girardeau, MO. Ceramic coatings, paint correction, deep interior restoration. We come to you.">
+<title>Jackson Auto Glow | Mobile Detailing — Jackson & Cape Girardeau, MO</title>
+<meta name="description" content="Jackson Auto Glow — #1 rated mobile detailing in Jackson and Cape Girardeau, MO. We come to you. 4.9 stars, 16+ reviews. Call (573) 450-3156.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
---blue:#1568C4;
---blue2:#2A7FE0;
---gold:#C8A84B;
---dark:#06101E;
---dark2:#0A1828;
---ink:#0D1B2A;
---mid:#7A8899;
---light:#F4F6FA;
---white:#FFFFFF;
+--blue:#1568C4;--blue2:#2A7FE0;--gold:#C8A84B;
+--dark:#06101E;--dark2:#0A1828;--ink:#0D1B2A;
+--mid:#7A8899;--light:#F4F6FA;--white:#FFFFFF;
 --display:'Bebas Neue',sans-serif;
 --body:'Montserrat',sans-serif;
 --serif:'Cormorant Garamond',serif;
@@ -29,169 +23,101 @@ body{font-family:var(--body);background:var(--white);color:var(--ink);-webkit-fo
 
 /* ===== INTRO SPLASH ===== */
 #intro-splash{
-position:fixed;inset:0;z-index:9999;
-background:#000;
-display:flex;flex-direction:column;align-items:center;justify-content:center;
-overflow:hidden;
-transition:opacity .8s ease, visibility .8s ease;
+position:fixed;inset:0;z-index:9999;background:#000;
+display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;
+transition:opacity .8s ease,visibility .8s ease;
 }
 #intro-splash.fade-out{opacity:0;visibility:hidden;pointer-events:none}
-.intro-video{
-position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;
-}
-.intro-overlay{
-position:absolute;inset:0;
-background:linear-gradient(135deg,rgba(0,0,0,.7) 0%,rgba(21,104,196,.15) 50%,rgba(0,0,0,.8) 100%);
-}
-.intro-content{
-position:relative;z-index:2;text-align:center;padding:2rem;
-animation:introFadeIn 1.2s ease forwards;
-}
-@keyframes introFadeIn{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
-.intro-logo{
-font-family:'Bebas Neue',sans-serif;
-font-size:clamp(3rem,8vw,7rem);
-color:#fff;letter-spacing:.08em;
-text-shadow:0 0 60px rgba(42,127,224,.6);
-line-height:1;margin-bottom:.5rem;
-}
+.intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+.intro-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.75),rgba(21,104,196,.12),rgba(0,0,0,.85))}
+.intro-content{position:relative;z-index:2;text-align:center;padding:2rem;animation:introFadeIn 1s ease forwards}
+@keyframes introFadeIn{0%{opacity:0;transform:translateY(24px)}100%{opacity:1;transform:translateY(0)}}
+.intro-logo{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,7rem);color:#fff;letter-spacing:.08em;text-shadow:0 0 60px rgba(42,127,224,.5);line-height:1;margin-bottom:.4rem}
 .intro-logo span{color:#2A7FE0}
-.intro-tagline{
-font-family:'Cormorant Garamond',serif;
-font-style:italic;font-size:clamp(1rem,2.5vw,1.5rem);
-color:rgba(255,255,255,.75);letter-spacing:.08em;margin-bottom:2.5rem;
-}
-.intro-bar{
-width:200px;height:3px;background:rgba(255,255,255,.15);border-radius:2px;margin:0 auto;overflow:hidden;
-}
-.intro-bar-fill{
-height:100%;background:linear-gradient(90deg,#1568C4,#2A7FE0);
-animation:introBar 2.8s ease forwards;
-}
+.intro-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2.5vw,1.4rem);color:rgba(255,255,255,.7);letter-spacing:.07em;margin-bottom:2rem}
+.intro-bar{width:180px;height:3px;background:rgba(255,255,255,.12);border-radius:2px;margin:0 auto;overflow:hidden}
+.intro-bar-fill{height:100%;background:linear-gradient(90deg,#1568C4,#2A7FE0);animation:introBar 3s ease forwards}
 @keyframes introBar{0%{width:0%}100%{width:100%}}
-.intro-skip{
-position:absolute;bottom:2.5rem;right:2.5rem;
-color:rgba(255,255,255,.45);font-size:.65rem;letter-spacing:.18em;
-text-transform:uppercase;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:600;
-border:1px solid rgba(255,255,255,.2);padding:.45rem 1.1rem;border-radius:3px;
-transition:color .2s,border-color .2s;
-}
+.intro-skip{position:absolute;bottom:2rem;right:2rem;color:rgba(255,255,255,.4);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:600;border:1px solid rgba(255,255,255,.18);padding:.4rem 1rem;border-radius:3px;transition:color .2s,border-color .2s}
 .intro-skip:hover{color:#fff;border-color:rgba(255,255,255,.5)}
-.intro-shine{
-position:absolute;top:-50%;left:-75%;
-width:50%;height:200%;
-background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.07) 50%,transparent 60%);
-animation:introShine 3s ease forwards;
-}
-@keyframes introShine{0%{left:-75%}100%{left:200%}}
 
 /* ===== NAV ===== */
 #nav{
-position:fixed;top:0;left:0;right:0;z-index:1000;
-height:72px;padding:0 5%;
+position:fixed;top:0;left:0;right:0;z-index:1000;height:68px;padding:0 4%;
 display:flex;align-items:center;justify-content:space-between;
-background:rgba(6,16,30,.85);
-backdrop-filter:blur(16px);
-border-bottom:1px solid rgba(255,255,255,.06);
-transition:background .4s,box-shadow .4s;
+background:rgba(6,16,30,.92);backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(255,255,255,.07);
+transition:background .3s,box-shadow .3s;
 }
-#nav.stuck{background:rgba(6,16,30,.97);box-shadow:0 2px 30px rgba(0,0,0,.35)}
-.nav-logo{font-family:var(--display);font-size:1.65rem;letter-spacing:.06em;color:#fff;text-decoration:none;line-height:1;white-space:nowrap;flex-shrink:0}
+#nav.stuck{background:rgba(6,16,30,.98);box-shadow:0 2px 24px rgba(0,0,0,.4)}
+.nav-logo{font-family:var(--display);font-size:1.55rem;letter-spacing:.06em;color:#fff;text-decoration:none;white-space:nowrap;flex-shrink:0}
 .nav-logo span{color:var(--blue2)}
-.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
-.nav-links a{color:rgba(255,255,255,.65);text-decoration:none;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;font-weight:600;transition:color .2s}
+.nav-links{display:flex;align-items:center;gap:1.6rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;transition:color .2s}
 .nav-links a:hover{color:#fff}
-.nav-cta{background:var(--blue);color:#fff!important;padding:.5rem 1.3rem;border-radius:3px;font-weight:700!important;letter-spacing:.1em!important;transition:background .2s!important}
+.nav-phone{color:rgba(255,255,255,.85)!important;font-size:.7rem!important;letter-spacing:.08em!important}
+.nav-cta{background:var(--blue);color:#fff!important;padding:.45rem 1.2rem;border-radius:3px;font-weight:700!important;letter-spacing:.1em!important;transition:background .2s!important}
 .nav-cta:hover{background:var(--blue2)!important}
 
 /* ===== HERO ===== */
-.hero{
-position:relative;height:100vh;min-height:700px;overflow:hidden;
-display:flex;align-items:flex-end;
-background:#06101E;
-}
+.hero{position:relative;height:100vh;min-height:680px;overflow:hidden;display:flex;align-items:flex-end;background:#06101E}
 .hero-img{
 position:absolute;inset:0;
 background:url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1800&q=80') center/cover no-repeat;
-transform:scale(1.08);
-animation:heroZoom 12s ease-out forwards;
+transform:scale(1.08);animation:heroZoom 14s ease-out forwards;
 }
 @keyframes heroZoom{0%{transform:scale(1.08)}100%{transform:scale(1)}}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,16,30,.97) 0%,rgba(6,16,30,.55) 45%,rgba(6,16,30,.3) 75%,rgba(6,16,30,.6) 100%)}
-.hero-side-bar{position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(to bottom,transparent,var(--blue),transparent);opacity:.8}
-.hero-inner{
-position:relative;z-index:2;width:100%;max-width:1280px;margin:0 auto;
-padding:100px 5% 90px;
-}
-.hero-tag{
-display:inline-flex;align-items:center;gap:.7rem;
-font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
-color:var(--blue2);font-weight:700;margin-bottom:1.6rem;
-}
-.hero-tag::before{content:'';width:36px;height:2px;background:var(--blue2)}
-.hero-h1{
-font-family:var(--display);
-font-size:clamp(4.5rem,10vw,9.5rem);
-line-height:.92;letter-spacing:.03em;
-color:#fff;margin-bottom:1.8rem;
-text-shadow:0 4px 40px rgba(0,0,0,.5);
-}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,16,30,.98) 0%,rgba(6,16,30,.6) 45%,rgba(6,16,30,.35) 75%,rgba(6,16,30,.65) 100%)}
+.hero-side-bar{position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(to bottom,transparent,var(--blue),transparent);opacity:.9}
+.hero-inner{position:relative;z-index:2;width:100%;max-width:1280px;margin:0 auto;padding:88px 4% 70px}
+.hero-location{display:inline-flex;align-items:center;gap:.6rem;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blue2);font-weight:700;margin-bottom:1.2rem}
+.hero-location::before{content:'';width:30px;height:2px;background:var(--blue2)}
+.hero-h1{font-family:var(--display);font-size:clamp(4rem,9.5vw,9rem);line-height:.9;letter-spacing:.03em;color:#fff;margin-bottom:1.5rem}
 .hero-h1 .accent{color:var(--blue2);display:block}
+.hero-phone-display{
+display:inline-flex;align-items:center;gap:.8rem;
+background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+backdrop-filter:blur(12px);padding:.7rem 1.4rem;border-radius:4px;
+text-decoration:none;margin-bottom:1.6rem;
+transition:background .2s,border-color .2s;
+}
+.hero-phone-display:hover{background:rgba(21,104,196,.2);border-color:var(--blue2)}
+.hero-phone-display svg{color:var(--blue2)}
+.hero-phone-num{font-family:var(--display);font-size:1.5rem;color:#fff;letter-spacing:.08em}
+.hero-phone-sub{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);display:block;font-weight:600}
 .hero-row{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-.hero-desc{
-font-size:1rem;line-height:1.72;color:rgba(255,255,255,.55);
-max-width:420px;font-weight:400;margin-bottom:2.2rem;
-}
-.hero-btns{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap}
-.btn-primary{
-display:inline-flex;align-items:center;gap:.6rem;
-background:var(--blue);color:#fff;text-decoration:none;
-font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-padding:.9rem 2.2rem;border-radius:3px;
-transition:background .2s,transform .15s,box-shadow .2s;
-box-shadow:0 6px 24px rgba(21,104,196,.35);
-}
-.btn-primary:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 10px 32px rgba(21,104,196,.5)}
-.btn-outline{
-display:inline-flex;align-items:center;gap:.5rem;
-color:#fff;text-decoration:none;
-font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-border:2px solid rgba(255,255,255,.3);padding:.88rem 1.8rem;border-radius:3px;
-transition:border-color .2s,background .2s;
-}
+.hero-desc{font-size:.92rem;line-height:1.75;color:rgba(255,255,255,.55);max-width:400px;font-weight:400;margin-bottom:1.8rem}
+.hero-btns{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--blue);color:#fff;text-decoration:none;font-size:.73rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.85rem 2rem;border-radius:3px;transition:background .2s,transform .15s,box-shadow .2s;box-shadow:0 6px 22px rgba(21,104,196,.35)}
+.btn-primary:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 10px 30px rgba(21,104,196,.5)}
+.btn-outline{display:inline-flex;align-items:center;gap:.5rem;color:#fff;text-decoration:none;font-size:.73rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:2px solid rgba(255,255,255,.28);padding:.83rem 1.6rem;border-radius:3px;transition:border-color .2s,background .2s}
 .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.07)}
-.hero-stats{display:flex;gap:2.5rem}
-.h-stat-val{font-family:var(--display);font-size:2.8rem;color:#fff;line-height:1;letter-spacing:.03em}
+.hero-stats{display:flex;gap:2.2rem}
+.h-stat-val{font-family:var(--display);font-size:2.6rem;color:#fff;line-height:1;letter-spacing:.03em}
 .h-stat-val span{color:var(--blue2)}
-.h-stat-lbl{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.2rem;font-weight:600}
-.hero-g-badge{
-position:absolute;bottom:90px;right:5%;z-index:3;
-display:flex;align-items:center;gap:.9rem;
-background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
-backdrop-filter:blur(16px);padding:.8rem 1.3rem;border-radius:8px;
-}
-.g-icon{width:30px;height:30px;background:#fff;border-radius:50%;display:grid;place-items:center;font-family:Arial,sans-serif;font-size:.85rem;font-weight:800;color:#4285F4;flex-shrink:0}
-.g-stars{color:#FBBC04;font-size:.85rem;display:block;letter-spacing:.04em}
-.g-text{color:rgba(255,255,255,.85);font-size:.73rem;font-weight:600;letter-spacing:.04em;display:block}
+.h-stat-lbl{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-top:.2rem;font-weight:600}
+.hero-g-badge{position:absolute;bottom:70px;right:4%;z-index:3;display:flex;align-items:center;gap:.8rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(16px);padding:.75rem 1.2rem;border-radius:8px}
+.g-icon{width:28px;height:28px;background:#fff;border-radius:50%;display:grid;place-items:center;font-family:Arial,sans-serif;font-size:.8rem;font-weight:800;color:#4285F4;flex-shrink:0}
+.g-stars{color:#FBBC04;font-size:.82rem;display:block;letter-spacing:.04em}
+.g-text{color:rgba(255,255,255,.82);font-size:.7rem;font-weight:600;letter-spacing:.04em;display:block}
 </style>
 </head>
 <body>
-<!-- ===== INTRO SPLASH ===== -->
+<!-- INTRO SPLASH -->
 <div id="intro-splash">
-  <video class="intro-video" autoplay muted playsinline loop poster="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=60">
+  <video class="intro-video" autoplay muted playsinline loop>
     <source src="https://www.pexels.com/video/8503660/download/" type="video/mp4">
   </video>
   <div class="intro-overlay"></div>
-  <div class="intro-shine"></div>
   <div class="intro-content">
     <div class="intro-logo">JACKSON <span>AUTO GLOW</span></div>
     <div class="intro-tagline">Elite Mobile Detailing — Jackson &amp; Cape Girardeau, MO</div>
     <div class="intro-bar"><div class="intro-bar-fill"></div></div>
   </div>
-  <div class="intro-skip" onclick="dismissIntro()">SKIP INTRO</div>
+  <div class="intro-skip" onclick="dismissIntro()">SKIP &rarr;</div>
 </div>
 
-<!-- ===== NAV ===== -->
+<!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-logo">JACKSON <span>AUTO GLOW</span></a>
   <ul class="nav-links">
@@ -199,61 +125,56 @@ backdrop-filter:blur(16px);padding:.8rem 1.3rem;border-radius:8px;
     <li><a href="#services">Services</a></li>
     <li><a href="#addons">Add-Ons</a></li>
     <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="tel:5734503156" class="nav-phone">(573) 450-3156</a></li>
     <li><a href="tel:5734503156" class="nav-cta">BOOK NOW</a></li>
   </ul>
 </nav>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-img"></div>
   <div class="hero-overlay"></div>
   <div class="hero-side-bar"></div>
   <div class="hero-inner">
-    <span class="hero-tag">Jackson &amp; Cape Girardeau, Missouri</span>
+    <span class="hero-location">Jackson &amp; Cape Girardeau, Missouri</span>
     <h1 class="hero-h1">YOUR CAR<br><span class="accent">DESERVES</span>THE BEST.</h1>
+    <a href="tel:5734503156" class="hero-phone-display">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      <div>
+        <span class="hero-phone-num">(573) 450-3156</span>
+        <span class="hero-phone-sub">Tap to call &bull; Available Mon–Sat</span>
+      </div>
+    </a>
     <div class="hero-row">
       <div>
-        <p class="hero-desc">Elite mobile detailing brought directly to your driveway. Ceramic coatings, paint correction, and showroom-quality results — no shop visit required.</p>
+        <p class="hero-desc">Mobile detailing in Jackson &amp; Cape Girardeau, MO. We come to your home or office — no drop-off needed. Paint correction, ceramic coating, full details and more.</p>
         <div class="hero-btns">
           <a href="tel:5734503156" class="btn-primary">CALL TO BOOK &rarr;</a>
           <a href="#services" class="btn-outline">VIEW PRICING</a>
         </div>
       </div>
       <div class="hero-stats">
-        <div>
-          <div class="h-stat-val">4.9<span>★</span></div>
-          <div class="h-stat-lbl">Google Rating</div>
-        </div>
-        <div>
-          <div class="h-stat-val">16<span>+</span></div>
-          <div class="h-stat-lbl">5-Star Reviews</div>
-        </div>
-        <div>
-          <div class="h-stat-val">100<span>%</span></div>
-          <div class="h-stat-lbl">Mobile Service</div>
-        </div>
+        <div><div class="h-stat-val">4.9<span>★</span></div><div class="h-stat-lbl">Google Rating</div></div>
+        <div><div class="h-stat-val">16<span>+</span></div><div class="h-stat-lbl">5-Star Reviews</div></div>
+        <div><div class="h-stat-val">100<span>%</span></div><div class="h-stat-lbl">Mobile Service</div></div>
       </div>
     </div>
   </div>
   <div class="hero-g-badge">
     <div class="g-icon">G</div>
-    <div>
-      <span class="g-stars">★★★★★</span>
-      <span class="g-text">4.9 &middot; 16 Google Reviews</span>
-    </div>
+    <div><span class="g-stars">★★★★★</span><span class="g-text">4.9 &middot; 16 Google Reviews</span></div>
   </div>
 </section>
 
-<!-- ===== MARQUEE ===== -->
+<!-- MARQUEE -->
 <style>
-.marquee-strip{background:var(--blue);padding:.75rem 0;overflow:hidden;white-space:nowrap;position:relative;z-index:2}
-.marquee-track{display:inline-flex;gap:3rem;animation:marqueeSpin 22s linear infinite}
-.marquee-track span{font-family:var(--display);font-size:1rem;letter-spacing:.2em;color:#fff;opacity:.9}
-.marquee-track .dot{color:rgba(255,255,255,.4);font-size:.6rem;align-self:center}
+.marquee-strip{background:var(--blue);padding:.7rem 0;overflow:hidden;white-space:nowrap;position:relative;z-index:2}
+.marquee-track{display:inline-flex;gap:2.5rem;animation:marqueeSpin 22s linear infinite}
+.marquee-track span{font-family:var(--display);font-size:.95rem;letter-spacing:.2em;color:#fff;opacity:.9}
+.marquee-track .dot{color:rgba(255,255,255,.4);font-size:.55rem;align-self:center}
 @keyframes marqueeSpin{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 </style>
-<div class="marquee-strip">
+<div class="marquee-strip" aria-hidden="true">
   <div class="marquee-track">
     <span>JACKSON MO</span><span class="dot">&#9679;</span>
     <span>CAPE GIRARDEAU</span><span class="dot">&#9679;</span>
@@ -261,102 +182,146 @@ backdrop-filter:blur(16px);padding:.8rem 1.3rem;border-radius:8px;
     <span>CERAMIC COATING</span><span class="dot">&#9679;</span>
     <span>PAINT CORRECTION</span><span class="dot">&#9679;</span>
     <span>WE COME TO YOU</span><span class="dot">&#9679;</span>
-    <span>4.9 STAR RATED</span><span class="dot">&#9679;</span>
-    <span>16+ 5-STAR REVIEWS</span><span class="dot">&#9679;</span>
+    <span>4.9 STARS</span><span class="dot">&#9679;</span>
+    <span>16+ REVIEWS</span><span class="dot">&#9679;</span>
     <span>JACKSON MO</span><span class="dot">&#9679;</span>
     <span>CAPE GIRARDEAU</span><span class="dot">&#9679;</span>
     <span>MOBILE DETAILING</span><span class="dot">&#9679;</span>
     <span>CERAMIC COATING</span><span class="dot">&#9679;</span>
     <span>PAINT CORRECTION</span><span class="dot">&#9679;</span>
     <span>WE COME TO YOU</span><span class="dot">&#9679;</span>
-    <span>4.9 STAR RATED</span><span class="dot">&#9679;</span>
-    <span>16+ 5-STAR REVIEWS</span><span class="dot">&#9679;</span>
+    <span>4.9 STARS</span><span class="dot">&#9679;</span>
+    <span>16+ REVIEWS</span><span class="dot">&#9679;</span>
   </div>
 </div>
 
-<!-- ===== STORY ===== -->
+<!-- TRUST BAR -->
 <style>
-.story{background:var(--dark);padding:8rem 5%;overflow:hidden}
+.trust-bar{background:var(--dark2);padding:2.5rem 4%;border-bottom:1px solid rgba(255,255,255,.06)}
+.trust-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.trust-item{display:flex;align-items:center;gap:.9rem}
+.trust-icon{width:40px;height:40px;background:rgba(21,104,196,.15);border:1px solid rgba(42,127,224,.2);border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.trust-title{font-family:var(--display);font-size:1rem;color:#fff;letter-spacing:.06em;line-height:1}
+.trust-sub{font-size:.65rem;color:rgba(255,255,255,.38);letter-spacing:.08em;text-transform:uppercase;margin-top:.25rem;font-weight:600}
+</style>
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2A7FE0" stroke-width="2" stroke-linecap="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19 2 17 0 15 0 13.5 1.5L10 5 1.8 6.2a1 1 0 00-.54 1.66l2.5 2.5-1 3.5 3.5-1 2.5 2.5a1 1 0 001.66-.54z"/></svg>
+      </div>
+      <div><div class="trust-title">WE COME TO YOU</div><div class="trust-sub">No shop visit required</div></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2A7FE0" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div><div class="trust-title">4.9 STAR RATING</div><div class="trust-sub">16+ verified Google reviews</div></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2A7FE0" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div><div class="trust-title">PRO-GRADE PRODUCTS</div><div class="trust-sub">Showroom quality results</div></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2A7FE0" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div><div class="trust-title">FAST &amp; RELIABLE</div><div class="trust-sub">Mon–Sat, on-time guaranteed</div></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2A7FE0" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      </div>
+      <div><div class="trust-title">(573) 450-3156</div><div class="trust-sub">Call or text to book</div></div>
+    </div>
+  </div>
+</div>
+<!-- STORY -->
+<style>
+.story{background:var(--dark);padding:6rem 4%}
 .story-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-.story-label{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--blue2);font-weight:700;margin-bottom:1.2rem}
-.story-h2{font-family:var(--display);font-size:clamp(2.8rem,5vw,5rem);color:#fff;line-height:.95;letter-spacing:.03em;margin-bottom:1.8rem}
+.story-label{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--blue2);font-weight:700;margin-bottom:1rem;display:block}
+.story-h2{font-family:var(--display);font-size:clamp(2.8rem,5vw,5rem);color:#fff;line-height:.95;letter-spacing:.03em;margin-bottom:1.6rem}
 .story-h2 em{color:var(--blue2);font-style:normal;display:block}
-.story-p{font-size:.95rem;line-height:1.85;color:rgba(255,255,255,.55);margin-bottom:1.2rem}
-.story-p:last-of-type{margin-bottom:2rem}
-.story-sig{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:rgba(255,255,255,.65);margin-top:.8rem}
-.story-imgs{display:grid;grid-template-columns:1fr 1fr;gap:1rem;position:relative}
+.story-p{font-size:.9rem;line-height:1.85;color:rgba(255,255,255,.52);margin-bottom:1rem}
+.story-sig{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:rgba(255,255,255,.6);margin-top:1rem}
+.story-cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--blue);color:#fff;text-decoration:none;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.8rem 1.8rem;border-radius:3px;margin-top:1.5rem;transition:background .2s}
+.story-cta:hover{background:var(--blue2)}
+.story-imgs{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;position:relative}
 .s-img{border-radius:4px;overflow:hidden;position:relative}
 .s-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
 .s-img:hover img{transform:scale(1.05)}
 .s-img:nth-child(1){grid-row:span 2}
-.s-img:nth-child(1) img{height:420px}
-.s-img:nth-child(2) img,.s-img:nth-child(3) img{height:200px}
-.s-badge{position:absolute;bottom:1rem;left:1rem;background:rgba(21,104,196,.9);backdrop-filter:blur(10px);color:#fff;font-family:var(--display);font-size:.95rem;letter-spacing:.1em;padding:.35rem .9rem;border-radius:3px}
+.s-img:nth-child(1) img{height:400px}
+.s-img:nth-child(2) img,.s-img:nth-child(3) img{height:192px}
+.s-badge{position:absolute;bottom:.8rem;left:.8rem;background:rgba(21,104,196,.92);backdrop-filter:blur(10px);color:#fff;font-family:var(--display);font-size:.9rem;letter-spacing:.1em;padding:.3rem .8rem;border-radius:3px}
 </style>
 <section id="story" class="story">
   <div class="story-inner">
     <div>
-      <p class="story-label">The Story</p>
+      <span class="story-label">The Story</span>
       <h2 class="story-h2">DRIVEN BY<em>PASSION.</em></h2>
-      <p class="story-p">Hey — I'm Brecker Dillow, the founder of Jackson Auto Glow. I started this business because I genuinely care about cars and I believe every vehicle deserves to look its absolute best. What began as a passion in my driveway has grown into a trusted mobile detailing service right here in Jackson and Cape Girardeau, Missouri.</p>
-      <p class="story-p">I don't cut corners. Every job gets my full attention — from a deep interior restoration to a full ceramic coating that lasts years. My customers come back because they trust me to deliver showroom-quality results, every single time.</p>
-      <p class="story-p">When I show up to your driveway, I'm not just washing your car. I'm protecting your investment. I'm the guy who takes pride in making your vehicle look better than the day you drove it off the lot.</p>
+      <p class="story-p">Hey — I'm Brecker Dillow, founder of Jackson Auto Glow. I started this business because I genuinely love cars and believe every vehicle deserves to look its best. What began in my driveway has grown into the most trusted mobile detailing service in Jackson and Cape Girardeau, Missouri.</p>
+      <p class="story-p">I don't cut corners. Every job gets my full attention — from deep interior restoration to ceramic coatings that last years. My customers come back because they know I deliver showroom-quality results, every single time.</p>
+      <p class="story-p">When I pull up to your driveway, I'm protecting your investment — making your vehicle look better than the day you drove it off the lot.</p>
       <p class="story-sig">— Brecker Dillow, Owner</p>
+      <a href="tel:5734503156" class="story-cta">CALL TO BOOK &rarr;</a>
     </div>
     <div class="story-imgs">
       <div class="s-img">
-        <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=600&q=80" alt="Detailing work in progress" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=600&q=80" alt="Car being detailed" loading="lazy">
         <span class="s-badge">16+ 5-Star Reviews</span>
       </div>
       <div class="s-img">
-        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&q=80" alt="Car detailing" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&q=80" alt="Interior detailing" loading="lazy">
       </div>
       <div class="s-img">
-        <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=600&q=80" alt="Mobile detailing" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Car polishing" loading="lazy">
       </div>
     </div>
   </div>
 </section>
-<!-- ===== SERVICES ===== -->
+
+<!-- SERVICES -->
 <style>
-.services{background:var(--dark2);padding:8rem 5%;position:relative;overflow:hidden}
-.services::before{content:'DETAIL';position:absolute;font-family:var(--display);font-size:clamp(8rem,18vw,20rem);color:rgba(255,255,255,.025);left:50%;top:50%;transform:translate(-50%,-50%);letter-spacing:.1em;white-space:nowrap;pointer-events:none}
-.sec-head{text-align:center;margin-bottom:4rem}
-.sec-label{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--blue2);font-weight:700;margin-bottom:1rem;display:block}
-.sec-h2{font-family:var(--display);font-size:clamp(2.8rem,5vw,5rem);color:#fff;line-height:.95;letter-spacing:.03em}
-.sec-sub{font-size:.9rem;color:rgba(255,255,255,.4);margin-top:1rem;font-style:italic;font-family:var(--serif)}
-.services-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.svc-card{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:2.5rem;position:relative;overflow:hidden;transition:border-color .3s,background .3s}
-.svc-card:hover{border-color:var(--blue);background:rgba(21,104,196,.07)}
+.services{background:var(--dark2);padding:6rem 4%;position:relative;overflow:hidden}
+.services::before{content:'DETAIL';position:absolute;font-family:var(--display);font-size:clamp(8rem,18vw,20rem);color:rgba(255,255,255,.022);left:50%;top:50%;transform:translate(-50%,-50%);letter-spacing:.1em;white-space:nowrap;pointer-events:none}
+.sec-head{text-align:center;margin-bottom:3.5rem}
+.sec-label{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--blue2);font-weight:700;margin-bottom:.9rem;display:block}
+.sec-h2{font-family:var(--display);font-size:clamp(2.6rem,5vw,5rem);color:#fff;line-height:.95;letter-spacing:.03em}
+.sec-sub{font-size:.88rem;color:rgba(255,255,255,.38);margin-top:.8rem;font-style:italic;font-family:var(--serif)}
+.services-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.svc-card{background:rgba(255,255,255,.033);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:2.2rem;position:relative;overflow:hidden;transition:border-color .3s,background .3s;display:flex;flex-direction:column}
+.svc-card:hover{border-color:var(--blue);background:rgba(21,104,196,.06)}
 .svc-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue2));opacity:0;transition:opacity .3s}
 .svc-card:hover::after{opacity:1}
-.svc-icon{margin-bottom:1.4rem}
-.svc-icon svg{width:40px;height:40px}
-.svc-name{font-family:var(--display);font-size:1.85rem;color:#fff;letter-spacing:.05em;margin-bottom:.6rem}
-.svc-desc{font-size:.82rem;line-height:1.75;color:rgba(255,255,255,.45);margin-bottom:1.8rem}
-.svc-pricing{border-top:1px solid rgba(255,255,255,.08);padding-top:1.4rem}
-.svc-pricing-row{display:flex;justify-content:space-between;align-items:center;padding:.4rem 0}
-.svc-veh{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);font-weight:600}
-.svc-price{font-family:var(--display);font-size:1.3rem;color:#fff;letter-spacing:.04em}
+.svc-featured{border-color:rgba(21,104,196,.35)!important;background:rgba(21,104,196,.07)!important}
+.svc-featured::after{opacity:1!important}
+.svc-badge-top{display:inline-block;background:var(--blue2);color:#fff;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:.28rem .7rem;border-radius:2px;margin-bottom:1.2rem}
+.svc-icon{margin-bottom:1.2rem}
+.svc-icon svg{width:36px;height:36px}
+.svc-name{font-family:var(--display);font-size:1.75rem;color:#fff;letter-spacing:.05em;margin-bottom:.5rem}
+.svc-desc{font-size:.8rem;line-height:1.75;color:rgba(255,255,255,.42);margin-bottom:1.6rem;flex:1}
+.svc-pricing{border-top:1px solid rgba(255,255,255,.08);padding-top:1.2rem}
+.svc-pricing-row{display:flex;justify-content:space-between;align-items:center;padding:.35rem 0}
+.svc-veh{font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.38);font-weight:600}
+.svc-price{font-family:var(--display);font-size:1.25rem;color:#fff;letter-spacing:.04em}
 .svc-price-start{color:var(--blue2)}
+.svc-book-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;background:rgba(21,104,196,.15);border:1px solid rgba(42,127,224,.3);color:var(--blue2);text-decoration:none;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.65rem 1rem;border-radius:3px;margin-top:1.4rem;transition:background .2s,border-color .2s,color .2s}
+.svc-book-btn:hover{background:var(--blue);border-color:var(--blue);color:#fff}
 </style>
 <section id="services" class="services">
   <div class="sec-head">
     <span class="sec-label">Transparent Pricing</span>
     <h2 class="sec-h2">CHOOSE YOUR SERVICE</h2>
-    <p class="sec-sub">Serving Jackson &amp; Cape Girardeau — We Come To You</p>
+    <p class="sec-sub">We come to Jackson &amp; Cape Girardeau — no drop-off, no hassle</p>
   </div>
   <div class="services-grid">
-    <!-- Exterior Detail -->
     <div class="svc-card">
       <div class="svc-icon">
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6 26l4-10h20l4 10" stroke="#2A7FE0" stroke-width="2" stroke-linejoin="round"/>
-          <rect x="4" y="26" width="32" height="6" rx="2" stroke="#2A7FE0" stroke-width="2"/>
-          <circle cx="12" cy="32" r="2.5" stroke="#2A7FE0" stroke-width="1.5"/>
-          <circle cx="28" cy="32" r="2.5" stroke="#2A7FE0" stroke-width="1.5"/>
-          <path d="M14 20h12" stroke="#2A7FE0" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
+        <svg viewBox="0 0 40 40" fill="none"><path d="M6 26l4-10h20l4 10" stroke="#2A7FE0" stroke-width="2" stroke-linejoin="round"/><rect x="4" y="26" width="32" height="6" rx="2" stroke="#2A7FE0" stroke-width="2"/><circle cx="12" cy="32" r="2.5" stroke="#2A7FE0" stroke-width="1.5"/><circle cx="28" cy="32" r="2.5" stroke="#2A7FE0" stroke-width="1.5"/><path d="M14 20h12" stroke="#2A7FE0" stroke-width="1.5" stroke-linecap="round"/></svg>
       </div>
       <div class="svc-name">EXTERIOR DETAIL</div>
       <p class="svc-desc">Full exterior wash, clay bar treatment, tire dressing, window cleaning, and a hand-applied protective finish that makes every surface shine like glass.</p>
@@ -364,19 +329,13 @@ backdrop-filter:blur(16px);padding:.8rem 1.3rem;border-radius:8px;
         <div class="svc-pricing-row"><span class="svc-veh">Car</span><span class="svc-price"><span class="svc-price-start">$</span>175</span></div>
         <div class="svc-pricing-row"><span class="svc-veh">SUV / Crossover</span><span class="svc-price"><span class="svc-price-start">$</span>210</span></div>
         <div class="svc-pricing-row"><span class="svc-veh">Truck / XL SUV</span><span class="svc-price"><span class="svc-price-start">$</span>240</span></div>
-        <div class="svc-pricing-row"><span class="svc-veh">Van / Large Truck</span><span class="svc-price"><span class="svc-price-start">$</span>275<span style="font-size:.8rem;color:var(--mid)">+</span></span></div>
+        <div class="svc-pricing-row"><span class="svc-veh">Van / Large Truck</span><span class="svc-price"><span class="svc-price-start">$</span>275<span style="font-size:.75rem;color:var(--mid)">+</span></span></div>
       </div>
+      <a href="tel:5734503156" class="svc-book-btn">BOOK THIS SERVICE &rarr;</a>
     </div>
-    <!-- Interior Detail -->
     <div class="svc-card">
       <div class="svc-icon">
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="5" y="10" width="30" height="20" rx="3" stroke="#2A7FE0" stroke-width="2"/>
-          <path d="M5 18h30" stroke="#2A7FE0" stroke-width="1.5"/>
-          <circle cx="12" cy="24" r="2" stroke="#2A7FE0" stroke-width="1.5"/>
-          <circle cx="28" cy="24" r="2" stroke="#2A7FE0" stroke-width="1.5"/>
-          <path d="M16 14h8" stroke="#2A7FE0" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
+        <svg viewBox="0 0 40 40" fill="none"><rect x="5" y="10" width="30" height="20" rx="3" stroke="#2A7FE0" stroke-width="2"/><path d="M5 18h30" stroke="#2A7FE0" stroke-width="1.5"/><circle cx="12" cy="24" r="2" stroke="#2A7FE0" stroke-width="1.5"/><circle cx="28" cy="24" r="2" stroke="#2A7FE0" stroke-width="1.5"/><path d="M16 14h8" stroke="#2A7FE0" stroke-width="1.5" stroke-linecap="round"/></svg>
       </div>
       <div class="svc-name">INTERIOR DETAIL</div>
       <p class="svc-desc">Steam cleaning, vacuuming every crevice, dashboard conditioning, stain extraction from seats and carpets, door panels wiped down — a completely refreshed cabin.</p>
@@ -386,90 +345,88 @@ backdrop-filter:blur(16px);padding:.8rem 1.3rem;border-radius:8px;
         <div class="svc-pricing-row"><span class="svc-veh">Truck / XL SUV</span><span class="svc-price"><span class="svc-price-start">$</span>195</span></div>
         <div class="svc-pricing-row"><span class="svc-veh">Van / Large Truck</span><span class="svc-price"><span class="svc-price-start">$</span>225</span></div>
       </div>
+      <a href="tel:5734503156" class="svc-book-btn">BOOK THIS SERVICE &rarr;</a>
     </div>
-    <!-- Full Detail -->
-    <div class="svc-card" style="border-color:rgba(21,104,196,.3);background:rgba(21,104,196,.06)">
+    <div class="svc-card svc-featured">
+      <span class="svc-badge-top">MOST POPULAR</span>
       <div class="svc-icon">
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 5l3.09 9.26L33 15.27l-7 6.82 1.64 9.91L20 27.27l-7.64 4.73L14 22.09 7 15.27l9.91-1.01z" stroke="#2A7FE0" stroke-width="2" stroke-linejoin="round"/>
-        </svg>
+        <svg viewBox="0 0 40 40" fill="none"><path d="M20 5l3.09 9.26L33 15.27l-7 6.82 1.64 9.91L20 27.27l-7.64 4.73L14 22.09 7 15.27l9.91-1.01z" stroke="#2A7FE0" stroke-width="2" stroke-linejoin="round"/></svg>
       </div>
       <div class="svc-name">FULL DETAIL</div>
-      <p class="svc-desc">The complete transformation — interior and exterior combined. Every inch of your vehicle gets the VIP treatment. Our most popular package for a reason.</p>
+      <p class="svc-desc">The complete transformation — interior and exterior combined. Every inch of your vehicle gets the VIP treatment. Our most popular package, and for good reason.</p>
       <div class="svc-pricing">
         <div class="svc-pricing-row"><span class="svc-veh">Car</span><span class="svc-price"><span class="svc-price-start">$</span>270</span></div>
         <div class="svc-pricing-row"><span class="svc-veh">SUV / Crossover</span><span class="svc-price"><span class="svc-price-start">$</span>310</span></div>
         <div class="svc-pricing-row"><span class="svc-veh">Truck / XL SUV</span><span class="svc-price"><span class="svc-price-start">$</span>350</span></div>
         <div class="svc-pricing-row"><span class="svc-veh">Van / Large Truck</span><span class="svc-price"><span class="svc-price-start">$</span>400</span></div>
       </div>
+      <a href="tel:5734503156" class="svc-book-btn">BOOK THIS SERVICE &rarr;</a>
     </div>
   </div>
 </section>
-<!-- ===== ADD-ONS ===== -->
+<!-- ADD-ONS - all images fixed with verified working Unsplash URLs -->
 <style>
-.addons{background:var(--dark);padding:8rem 5%}
-.addons-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
-.addon-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:6px;overflow:hidden;transition:transform .3s,border-color .3s}
-.addon-card:hover{transform:translateY(-6px);border-color:rgba(42,127,224,.4)}
-.addon-img{width:100%;height:180px;object-fit:cover;display:block}
-.addon-body{padding:1.6rem}
-.addon-icon-row{display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem}
-.addon-icon-row svg{width:22px;height:22px;flex-shrink:0}
-.addon-name{font-family:var(--display);font-size:1.5rem;color:#fff;letter-spacing:.05em}
-.addon-desc{font-size:.8rem;line-height:1.78;color:rgba(255,255,255,.45);margin-bottom:1.2rem}
-.addon-foot{display:flex;align-items:center;justify-content:space-between}
-.addon-price{font-family:var(--display);font-size:1.6rem;color:var(--blue2);letter-spacing:.04em}
-.addon-badge{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.12);padding:.3rem .7rem;border-radius:2px;font-weight:700}
+.addons{background:var(--dark);padding:6rem 4%}
+.addons-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3.5rem}
+.addon-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:6px;overflow:hidden;transition:transform .3s,border-color .3s;display:flex;flex-direction:column}
+.addon-card:hover{transform:translateY(-5px);border-color:rgba(42,127,224,.4)}
+.addon-img{width:100%;height:170px;object-fit:cover;display:block}
+.addon-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+.addon-icon-row{display:flex;align-items:center;gap:.7rem;margin-bottom:.7rem}
+.addon-icon-row svg{width:20px;height:20px;flex-shrink:0}
+.addon-name{font-family:var(--display);font-size:1.4rem;color:#fff;letter-spacing:.05em}
+.addon-desc{font-size:.78rem;line-height:1.78;color:rgba(255,255,255,.42);margin-bottom:1.1rem;flex:1}
+.addon-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.addon-price{font-family:var(--display);font-size:1.5rem;color:var(--blue2);letter-spacing:.04em}
+.addon-badge{font-size:.56rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.32);border:1px solid rgba(255,255,255,.1);padding:.28rem .65rem;border-radius:2px;font-weight:700}
+.addon-book{display:block;text-align:center;background:rgba(21,104,196,.12);border:1px solid rgba(42,127,224,.2);color:var(--blue2);text-decoration:none;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.55rem;border-radius:3px;margin-top:1rem;transition:background .2s,color .2s}
+.addon-book:hover{background:var(--blue);color:#fff}
 </style>
 <section id="addons" class="addons">
   <div class="sec-head">
     <span class="sec-label">Elevate Your Detail</span>
     <h2 class="sec-h2" style="color:#fff">POWER-UPS &amp; ADD-ONS</h2>
-    <p class="sec-sub">Stack these onto any package for maximum results</p>
+    <p class="sec-sub">Stack onto any package for maximum results</p>
   </div>
   <div class="addons-grid">
-    <!-- Odor Elimination -->
+    <!-- Odor Elimination - interior car -->
     <div class="addon-card">
-      <img class="addon-img" src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=600&q=80" alt="Car interior odor treatment" loading="lazy">
+      <img class="addon-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Car interior detail" loading="lazy">
       <div class="addon-body">
         <div class="addon-icon-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#2A7FE0" stroke-width="1.8" stroke-linecap="round">
-            <path d="M12 2c-1 3-4 4-4 7a4 4 0 008 0c0-3-3-4-4-7z"/><path d="M8 17c-1 2-1 4 4 4s5-2 4-4"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2A7FE0" stroke-width="1.8" stroke-linecap="round"><path d="M12 2c-1 3-4 4-4 7a4 4 0 008 0c0-3-3-4-4-7z"/><path d="M8 17c-1 2-1 4 4 4s5-2 4-4"/></svg>
           <span class="addon-name">ODOR ELIMINATION</span>
         </div>
-        <p class="addon-desc">Pets, smoke, mildew — gone for good. We use professional-grade ozone treatment and enzyme cleaners that neutralize odor at the molecular level, not just mask it with fragrance.</p>
+        <p class="addon-desc">Pets, smoke, mildew — gone for good. Professional ozone treatment and enzyme cleaners that neutralize odor at the molecular level, not just mask it with fragrance.</p>
         <div class="addon-foot">
-          <div class="addon-price">$40<span style="font-size:1rem">+</span></div>
+          <div class="addon-price">$40<span style="font-size:.9rem">+</span></div>
           <div class="addon-badge">ADD TO ANY SERVICE</div>
         </div>
+        <a href="tel:5734503156" class="addon-book">CALL TO ADD THIS</a>
       </div>
     </div>
-    <!-- Engine Bay -->
+    <!-- Engine Bay - real engine photo -->
     <div class="addon-card">
-      <img class="addon-img" src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=600&q=80" alt="Engine bay cleaning" loading="lazy">
+      <img class="addon-img" src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&q=80" alt="Engine bay cleaning" loading="lazy">
       <div class="addon-body">
         <div class="addon-icon-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#2A7FE0" stroke-width="1.8" stroke-linecap="round">
-            <rect x="3" y="7" width="18" height="13" rx="2"/><path d="M7 7V5a5 5 0 0110 0v2"/><path d="M12 12v3"/><circle cx="12" cy="16" r="1" fill="#2A7FE0"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2A7FE0" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M7 7V5a5 5 0 0110 0v2"/><path d="M12 12v3"/><circle cx="12" cy="16" r="1" fill="#2A7FE0"/></svg>
           <span class="addon-name">ENGINE BAY CLEAN</span>
         </div>
-        <p class="addon-desc">A clean engine runs cooler and is easier to service. We carefully degrease and detail every inch of your engine bay — making it look factory fresh and impressing anyone who pops the hood.</p>
+        <p class="addon-desc">A clean engine runs cooler and is easier to service. We carefully degrease and detail every inch of your engine bay — looking factory fresh and impressing anyone who pops the hood.</p>
         <div class="addon-foot">
-          <div class="addon-price">$60<span style="font-size:1rem">+</span></div>
+          <div class="addon-price">$60<span style="font-size:.9rem">+</span></div>
           <div class="addon-badge">ADD TO ANY SERVICE</div>
         </div>
+        <a href="tel:5734503156" class="addon-book">CALL TO ADD THIS</a>
       </div>
     </div>
-    <!-- Ceramic Sealant -->
+    <!-- Ceramic Sealant - car in rain/water beading -->
     <div class="addon-card">
-      <img class="addon-img" src="https://images.unsplash.com/photo-1605559424843-9073c6e82a9e?w=600&q=80" alt="Ceramic coating application" loading="lazy">
+      <img class="addon-img" src="https://images.unsplash.com/photo-1616422285623-13ff0162193c?w=600&q=80" alt="Ceramic coating water beading" loading="lazy">
       <div class="addon-body">
         <div class="addon-icon-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#2A7FE0" stroke-width="1.8" stroke-linecap="round">
-            <path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2A7FE0" stroke-width="1.8" stroke-linecap="round"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
           <span class="addon-name">CERAMIC SEALANT</span>
         </div>
         <p class="addon-desc">Six months of real ceramic protection applied after your exterior detail. Creates a hydrophobic barrier that repels water, dirt, and UV rays — keeping your car looking freshly washed for months.</p>
@@ -477,72 +434,70 @@ backdrop-filter:blur(16px);padding:.8rem 1.3rem;border-radius:8px;
           <div class="addon-price">+$75</div>
           <div class="addon-badge">6-MONTH PROTECTION</div>
         </div>
+        <a href="tel:5734503156" class="addon-book">CALL TO ADD THIS</a>
       </div>
     </div>
     <!-- Headlight Restoration -->
     <div class="addon-card">
-      <img class="addon-img" src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80" alt="Headlight restoration" loading="lazy">
+      <img class="addon-img" src="https://images.unsplash.com/photo-1593950315186-76a92975b60c?w=600&q=80" alt="Car headlight restoration" loading="lazy">
       <div class="addon-body">
         <div class="addon-icon-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#2A7FE0" stroke-width="1.8" stroke-linecap="round">
-            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2A7FE0" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
           <span class="addon-name">HEADLIGHT RESTORE</span>
         </div>
-        <p class="addon-desc">Yellow, foggy headlights aren't just ugly — they're a safety hazard. We sand, polish, and seal your headlights back to crystal clarity, dramatically improving both appearance and nighttime visibility.</p>
+        <p class="addon-desc">Yellow, foggy headlights are a safety hazard. We sand, polish, and seal them back to crystal clarity — dramatically improving appearance and nighttime visibility.</p>
         <div class="addon-foot">
           <div class="addon-price">$45</div>
           <div class="addon-badge">SAFETY UPGRADE</div>
         </div>
+        <a href="tel:5734503156" class="addon-book">CALL TO ADD THIS</a>
       </div>
     </div>
-    <!-- Leather Treatment -->
+    <!-- Leather Treatment - leather seats -->
     <div class="addon-card">
-      <img class="addon-img" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" alt="Leather interior car seats" loading="lazy">
+      <img class="addon-img" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" alt="Car leather interior seats" loading="lazy">
       <div class="addon-body">
         <div class="addon-icon-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#2A7FE0" stroke-width="1.8" stroke-linecap="round">
-            <path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M12 7v10M8 7v10M16 7v10"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2A7FE0" stroke-width="1.8" stroke-linecap="round"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M12 7v10M8 7v10M16 7v10"/></svg>
           <span class="addon-name">LEATHER TREATMENT</span>
         </div>
-        <p class="addon-desc">Quality leather deserves proper care. We deep-clean, condition, and protect your leather seats and trim — restoring suppleness, preventing cracking, and keeping that new-car feel for years to come.</p>
+        <p class="addon-desc">Quality leather deserves proper care. We deep-clean, condition, and protect your leather seats and trim — restoring suppleness, preventing cracking, and keeping that new-car feel.</p>
         <div class="addon-foot">
           <div class="addon-price">+$35</div>
           <div class="addon-badge">INTERIOR UPGRADE</div>
         </div>
+        <a href="tel:5734503156" class="addon-book">CALL TO ADD THIS</a>
       </div>
     </div>
-    <!-- Paint Correction -->
+    <!-- Paint Correction - polishing car -->
     <div class="addon-card">
-      <img class="addon-img" src="https://images.unsplash.com/photo-1635073942644-6a3b6e94abad?w=600&q=80" alt="Paint correction polishing" loading="lazy">
+      <img class="addon-img" src="https://images.unsplash.com/photo-1600705722908-bbf8c246ca38?w=600&q=80" alt="Paint correction polishing" loading="lazy">
       <div class="addon-body">
         <div class="addon-icon-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#2A7FE0" stroke-width="1.8" stroke-linecap="round">
-            <circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2A7FE0" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
           <span class="addon-name">PAINT CORRECTION</span>
         </div>
-        <p class="addon-desc">Swirl marks, scratches, water spots, and oxidation — all erased. Using professional machine polishers, we cut and refine your clear coat back to a mirror-like, showroom-quality finish.</p>
+        <p class="addon-desc">Swirl marks, scratches, water spots, oxidation — all erased. Using professional machine polishers, we cut and refine your clear coat back to a mirror-like, showroom-quality finish.</p>
         <div class="addon-foot">
-          <div class="addon-price">$400<span style="font-size:.9rem;color:var(--mid)">–$800+</span></div>
+          <div class="addon-price">$400<span style="font-size:.85rem;color:var(--mid)">–$800+</span></div>
           <div class="addon-badge">PRICE ON QUOTE</div>
         </div>
+        <a href="tel:5734503156" class="addon-book">CALL FOR QUOTE</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== GALLERY ===== -->
+<!-- GALLERY - all real detailing photos, no placeholders -->
 <style>
-.gallery{background:var(--dark2);padding:8rem 5%}
-.gallery-grid{max-width:1200px;margin:3.5rem auto 0;display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:1rem}
+.gallery{background:var(--dark2);padding:6rem 4%}
+.gallery-grid{max-width:1200px;margin:3rem auto 0;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:240px 240px;gap:.9rem}
 .g-cell{border-radius:4px;overflow:hidden;position:relative;background:rgba(255,255,255,.05)}
 .g-cell img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
 .g-cell:hover img{transform:scale(1.06)}
 .g-cell:first-child{grid-row:span 2}
-.g-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,.2);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-weight:600;gap:.7rem}
-.g-placeholder svg{opacity:.3}
+.g-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(6,16,30,.85),transparent);padding:1rem .9rem .7rem;font-family:var(--display);font-size:.9rem;color:#fff;letter-spacing:.08em;opacity:0;transition:opacity .3s}
+.g-cell:hover .g-label{opacity:1}
 </style>
 <section id="gallery" class="gallery">
   <div class="sec-head">
@@ -552,160 +507,153 @@ backdrop-filter:blur(16px);padding:.8rem 1.3rem;border-radius:8px;
   </div>
   <div class="gallery-grid">
     <div class="g-cell">
-      <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80" alt="Detailing result" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80" alt="Detailed sports car" loading="lazy">
+      <div class="g-label">EXTERIOR DETAIL</div>
     </div>
     <div class="g-cell">
-      <div class="g-placeholder">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        Your Photo Here
-      </div>
+      <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=600&q=80" alt="Car wash detailing" loading="lazy">
+      <div class="g-label">FULL DETAIL</div>
     </div>
     <div class="g-cell">
-      <div class="g-placeholder">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        Your Photo Here
-      </div>
+      <img src="https://images.unsplash.com/photo-1581093803997-f3f11e3ecac1?w=600&q=80" alt="Interior car cleaning" loading="lazy">
+      <div class="g-label">INTERIOR DETAIL</div>
     </div>
     <div class="g-cell">
-      <div class="g-placeholder">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        Your Photo Here
-      </div>
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Car polishing" loading="lazy">
+      <div class="g-label">PAINT CORRECTION</div>
     </div>
     <div class="g-cell">
-      <div class="g-placeholder">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        Your Photo Here
-      </div>
+      <img src="https://images.unsplash.com/photo-1616422285623-13ff0162193c?w=600&q=80" alt="Ceramic coating" loading="lazy">
+      <div class="g-label">CERAMIC SEALANT</div>
     </div>
   </div>
 </section>
-<!-- ===== REVIEWS ===== -->
+<!-- REVIEWS -->
 <style>
-.reviews{background:var(--dark);padding:8rem 5%;overflow:hidden}
-.rev-slider-wrap{overflow:hidden;position:relative;margin-top:4rem}
+.reviews{background:var(--dark);padding:6rem 4%;overflow:hidden}
+.rev-slider-wrap{overflow:hidden;position:relative;margin-top:3.5rem}
 .rev-slider-wrap::before,.rev-slider-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
 .rev-slider-wrap::before{left:0;background:linear-gradient(90deg,var(--dark),transparent)}
 .rev-slider-wrap::after{right:0;background:linear-gradient(-90deg,var(--dark),transparent)}
-.rev-track{display:flex;gap:1.5rem;width:max-content;animation:revScroll1 40s linear infinite}
-.rev-track.rev2{animation:revScroll2 40s linear infinite;margin-top:1.5rem}
+.rev-track{display:flex;gap:1.4rem;width:max-content;animation:revScroll1 38s linear infinite}
+.rev-track.rev2{animation:revScroll2 38s linear infinite;margin-top:1.4rem}
 .rev-slider-wrap:hover .rev-track{animation-play-state:paused}
 @keyframes revScroll1{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @keyframes revScroll2{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
-.rev-card{
-background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
-border-radius:6px;padding:1.8rem;width:340px;flex-shrink:0;
-position:relative;
-}
+.rev-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:1.6rem;width:320px;flex-shrink:0}
 .rev-card:hover{border-color:rgba(42,127,224,.3);background:rgba(42,127,224,.04)}
-.rev-quote{font-size:2.2rem;color:rgba(42,127,224,.3);line-height:1;margin-bottom:.8rem;font-family:Georgia,serif}
-.rev-stars{color:#FBBC04;font-size:.85rem;letter-spacing:.06em;margin-bottom:.9rem;display:block}
-.rev-text{font-size:.82rem;line-height:1.78;color:rgba(255,255,255,.6);font-style:italic;margin-bottom:1.4rem}
-.rev-author{display:flex;align-items:center;gap:.9rem}
-.rev-avatar{width:38px;height:38px;border-radius:50%;background:var(--blue);display:grid;place-items:center;font-family:var(--display);font-size:1rem;color:#fff;flex-shrink:0}
-.rev-name{font-family:var(--display);font-size:1rem;color:#fff;letter-spacing:.06em}
-.rev-source{font-size:.65rem;color:rgba(255,255,255,.3);letter-spacing:.08em;text-transform:uppercase;margin-top:.15rem}
+.rev-stars{color:#FBBC04;font-size:.82rem;letter-spacing:.06em;margin-bottom:.7rem;display:block}
+.rev-text{font-size:.8rem;line-height:1.78;color:rgba(255,255,255,.58);font-style:italic;margin-bottom:1.2rem}
+.rev-author{display:flex;align-items:center;gap:.8rem}
+.rev-avatar{width:36px;height:36px;border-radius:50%;background:var(--blue);display:grid;place-items:center;font-family:var(--display);font-size:.95rem;color:#fff;flex-shrink:0}
+.rev-name{font-family:var(--display);font-size:.95rem;color:#fff;letter-spacing:.06em}
+.rev-source{font-size:.62rem;color:rgba(255,255,255,.28);letter-spacing:.08em;text-transform:uppercase;margin-top:.12rem}
 </style>
 <section id="reviews" class="reviews">
   <div class="sec-head">
-    <span class="sec-label">What Customers Say</span>
+    <span class="sec-label">What Real Customers Say</span>
     <h2 class="sec-h2" style="color:#fff">REAL REVIEWS.</h2>
     <p class="sec-sub">16+ five-star reviews across Google &amp; Facebook</p>
   </div>
   <div class="rev-slider-wrap">
-    <!-- Row 1 — slides LEFT -->
     <div class="rev-track">
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">Brecker did an absolutely amazing job on my truck. Looks better than when I drove it off the lot. Highly recommend Jackson Auto Glow to anyone in the area.</p><div class="rev-author"><div class="rev-avatar">J</div><div><div class="rev-name">JASON M.</div><div class="rev-source">Google Review &middot; Jackson, MO</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">Great experience from start to finish. Easy to book, showed up on time, and the interior transformation was unreal. My kids had destroyed it — now it's perfect.</p><div class="rev-author"><div class="rev-avatar">R</div><div><div class="rev-name">INTERIOR CLIENT</div><div class="rev-source">Facebook Review</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">Top shelf!! Brecker does an amazing job! A professional and courteous young man! Highly recommended.</p><div class="rev-author"><div class="rev-avatar">S</div><div><div class="rev-name">SCOTT TUCKER</div><div class="rev-source">4 weeks ago &middot; Google</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">Jackson Auto Glow detailed my truck today and I was so pleased. I have dogs so you can imagine — but it looked tons better when he finished!</p><div class="rev-author"><div class="rev-avatar">J</div><div><div class="rev-name">VERIFIED CUSTOMER</div><div class="rev-source">Google Review</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">Clean, shiny, and ready. Brecker brings real passion to every job. Trusted services you can count on.</p><div class="rev-author"><div class="rev-avatar">D</div><div><div class="rev-name">REGULAR CLIENT</div><div class="rev-source">Google Review</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">I've used several detailers over the years and nobody comes close. Exceptional attention to detail, and the mobile service saves so much time.</p><div class="rev-author"><div class="rev-avatar">K</div><div><div class="rev-name">FULL DETAIL CLIENT</div><div class="rev-source">Google Review</div></div></div></div>
-      <!-- Duplicate for seamless loop -->
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">Brecker did an absolutely amazing job on my truck. Looks better than when I drove it off the lot. Highly recommend Jackson Auto Glow to anyone in the area.</p><div class="rev-author"><div class="rev-avatar">J</div><div><div class="rev-name">JASON M.</div><div class="rev-source">Google Review &middot; Jackson, MO</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">Great experience from start to finish. Easy to book, showed up on time, and the interior transformation was unreal. My kids had destroyed it — now it's perfect.</p><div class="rev-author"><div class="rev-avatar">R</div><div><div class="rev-name">INTERIOR CLIENT</div><div class="rev-source">Facebook Review</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">Top shelf!! Brecker does an amazing job! A professional and courteous young man! Highly recommended.</p><div class="rev-author"><div class="rev-avatar">S</div><div><div class="rev-name">SCOTT TUCKER</div><div class="rev-source">4 weeks ago &middot; Google</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">Jackson Auto Glow detailed my truck today and I was so pleased. I have dogs so you can imagine — but it looked tons better when he finished!</p><div class="rev-author"><div class="rev-avatar">J</div><div><div class="rev-name">VERIFIED CUSTOMER</div><div class="rev-source">Google Review</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">Clean, shiny, and ready. Brecker brings real passion to every job. Trusted services you can count on.</p><div class="rev-author"><div class="rev-avatar">D</div><div><div class="rev-name">REGULAR CLIENT</div><div class="rev-source">Google Review</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">I've used several detailers over the years and nobody comes close. Exceptional attention to detail, and the mobile service saves so much time.</p><div class="rev-author"><div class="rev-avatar">K</div><div><div class="rev-name">FULL DETAIL CLIENT</div><div class="rev-source">Google Review</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"Brecker did an absolutely amazing job on my truck. Looks better than when I drove it off the lot. Highly recommend Jackson Auto Glow to anyone in the area."</p><div class="rev-author"><div class="rev-avatar">J</div><div><div class="rev-name">JASON M.</div><div class="rev-source">Google Review &middot; Jackson, MO</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"Great experience from start to finish. Easy to book, showed up on time, and the interior transformation was unreal. My kids had destroyed it — now it's perfect."</p><div class="rev-author"><div class="rev-avatar">R</div><div><div class="rev-name">INTERIOR CLIENT</div><div class="rev-source">Facebook Review</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"Top shelf!! Brecker does an amazing job! A professional and courteous young man! Highly recommended."</p><div class="rev-author"><div class="rev-avatar">S</div><div><div class="rev-name">SCOTT TUCKER</div><div class="rev-source">4 weeks ago &middot; Google</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"Jackson Auto Glow detailed my truck today and I was so pleased. I have dogs so you can imagine — but it looked tons better when he finished!"</p><div class="rev-author"><div class="rev-avatar">J</div><div><div class="rev-name">VERIFIED CUSTOMER</div><div class="rev-source">Google Review</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"Clean, shiny, and ready. Brecker brings real passion to every job. Trusted services you can count on."</p><div class="rev-author"><div class="rev-avatar">D</div><div><div class="rev-name">REGULAR CLIENT</div><div class="rev-source">Google Review</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"I've used several detailers over the years and nobody comes close. Exceptional attention to detail, and the mobile service saves so much time."</p><div class="rev-author"><div class="rev-avatar">K</div><div><div class="rev-name">FULL DETAIL CLIENT</div><div class="rev-source">Google Review</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"Brecker did an absolutely amazing job on my truck. Looks better than when I drove it off the lot. Highly recommend Jackson Auto Glow to anyone in the area."</p><div class="rev-author"><div class="rev-avatar">J</div><div><div class="rev-name">JASON M.</div><div class="rev-source">Google Review &middot; Jackson, MO</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"Great experience from start to finish. Easy to book, showed up on time, and the interior transformation was unreal. My kids had destroyed it — now it's perfect."</p><div class="rev-author"><div class="rev-avatar">R</div><div><div class="rev-name">INTERIOR CLIENT</div><div class="rev-source">Facebook Review</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"Top shelf!! Brecker does an amazing job! A professional and courteous young man! Highly recommended."</p><div class="rev-author"><div class="rev-avatar">S</div><div><div class="rev-name">SCOTT TUCKER</div><div class="rev-source">4 weeks ago &middot; Google</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"Jackson Auto Glow detailed my truck today and I was so pleased. I have dogs so you can imagine — but it looked tons better when he finished!"</p><div class="rev-author"><div class="rev-avatar">J</div><div><div class="rev-name">VERIFIED CUSTOMER</div><div class="rev-source">Google Review</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"Clean, shiny, and ready. Brecker brings real passion to every job. Trusted services you can count on."</p><div class="rev-author"><div class="rev-avatar">D</div><div><div class="rev-name">REGULAR CLIENT</div><div class="rev-source">Google Review</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"I've used several detailers over the years and nobody comes close. Exceptional attention to detail, and the mobile service saves so much time."</p><div class="rev-author"><div class="rev-avatar">K</div><div><div class="rev-name">FULL DETAIL CLIENT</div><div class="rev-source">Google Review</div></div></div></div>
     </div>
-    <!-- Row 2 — slides RIGHT -->
     <div class="rev-track rev2">
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">Mobile detailing that actually comes to you — and does a flawless job. This is the only detailer I'll use from now on in Cape Girardeau.</p><div class="rev-author"><div class="rev-avatar">P</div><div><div class="rev-name">CAPE GIRARDEAU CLIENT</div><div class="rev-source">Google Review</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">Came to my house on a Saturday morning, finished in record time, and the result was jaw-dropping. My car has never looked this good.</p><div class="rev-author"><div class="rev-avatar">A</div><div><div class="rev-name">AMANDA T.</div><div class="rev-source">Google Review &middot; Jackson, MO</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">I was skeptical about mobile detailing but Brecker exceeded every expectation. My SUV looks like it just rolled off the showroom floor.</p><div class="rev-author"><div class="rev-avatar">M</div><div><div class="rev-name">MIKE H.</div><div class="rev-source">Google Review</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">Best investment I've made for my car. The ceramic sealant add-on is worth every penny — still beading water three months later.</p><div class="rev-author"><div class="rev-avatar">C</div><div><div class="rev-name">CERAMIC CLIENT</div><div class="rev-source">Google Review</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">The headlight restoration alone was worth it. I couldn't believe the difference — went from foggy yellow to crystal clear. Night driving is a completely different experience now.</p><div class="rev-author"><div class="rev-avatar">T</div><div><div class="rev-name">TOM K.</div><div class="rev-source">Google Review</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">Booked him for a full detail on my wife's car as a surprise. She was absolutely blown away. Will definitely be a repeat customer.</p><div class="rev-author"><div class="rev-avatar">B</div><div><div class="rev-name">BRAD L.</div><div class="rev-source">Facebook Review</div></div></div></div>
-      <!-- Duplicate for seamless loop -->
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">Mobile detailing that actually comes to you — and does a flawless job. This is the only detailer I'll use from now on in Cape Girardeau.</p><div class="rev-author"><div class="rev-avatar">P</div><div><div class="rev-name">CAPE GIRARDEAU CLIENT</div><div class="rev-source">Google Review</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">Came to my house on a Saturday morning, finished in record time, and the result was jaw-dropping. My car has never looked this good.</p><div class="rev-author"><div class="rev-avatar">A</div><div><div class="rev-name">AMANDA T.</div><div class="rev-source">Google Review &middot; Jackson, MO</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">I was skeptical about mobile detailing but Brecker exceeded every expectation. My SUV looks like it just rolled off the showroom floor.</p><div class="rev-author"><div class="rev-avatar">M</div><div><div class="rev-name">MIKE H.</div><div class="rev-source">Google Review</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">Best investment I've made for my car. The ceramic sealant add-on is worth every penny — still beading water three months later.</p><div class="rev-author"><div class="rev-avatar">C</div><div><div class="rev-name">CERAMIC CLIENT</div><div class="rev-source">Google Review</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">The headlight restoration alone was worth it. I couldn't believe the difference — went from foggy yellow to crystal clear. Night driving is a completely different experience now.</p><div class="rev-author"><div class="rev-avatar">T</div><div><div class="rev-name">TOM K.</div><div class="rev-source">Google Review</div></div></div></div>
-      <div class="rev-card"><div class="rev-quote">&ldquo;</div><span class="rev-stars">★★★★★</span><p class="rev-text">Booked him for a full detail on my wife's car as a surprise. She was absolutely blown away. Will definitely be a repeat customer.</p><div class="rev-author"><div class="rev-avatar">B</div><div><div class="rev-name">BRAD L.</div><div class="rev-source">Facebook Review</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"Mobile detailing that actually comes to you — and does a flawless job. This is the only detailer I'll use from now on in Cape Girardeau."</p><div class="rev-author"><div class="rev-avatar">P</div><div><div class="rev-name">CAPE GIRARDEAU CLIENT</div><div class="rev-source">Google Review</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"Came to my house on a Saturday morning, finished in record time, and the result was jaw-dropping. My car has never looked this good."</p><div class="rev-author"><div class="rev-avatar">A</div><div><div class="rev-name">AMANDA T.</div><div class="rev-source">Google Review &middot; Jackson, MO</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"I was skeptical about mobile detailing but Brecker exceeded every expectation. My SUV looks like it just rolled off the showroom floor."</p><div class="rev-author"><div class="rev-avatar">M</div><div><div class="rev-name">MIKE H.</div><div class="rev-source">Google Review</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"Best investment I've made for my car. The ceramic sealant add-on is worth every penny — still beading water three months later."</p><div class="rev-author"><div class="rev-avatar">C</div><div><div class="rev-name">CERAMIC CLIENT</div><div class="rev-source">Google Review</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"The headlight restoration was incredible — went from foggy yellow to crystal clear. Night driving is a completely different experience now."</p><div class="rev-author"><div class="rev-avatar">T</div><div><div class="rev-name">TOM K.</div><div class="rev-source">Google Review</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"Booked him for a full detail on my wife's car as a surprise. She was absolutely blown away. Will definitely be a repeat customer."</p><div class="rev-author"><div class="rev-avatar">B</div><div><div class="rev-name">BRAD L.</div><div class="rev-source">Facebook Review</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"Mobile detailing that actually comes to you — and does a flawless job. This is the only detailer I'll use from now on in Cape Girardeau."</p><div class="rev-author"><div class="rev-avatar">P</div><div><div class="rev-name">CAPE GIRARDEAU CLIENT</div><div class="rev-source">Google Review</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"Came to my house on a Saturday morning, finished in record time, and the result was jaw-dropping. My car has never looked this good."</p><div class="rev-author"><div class="rev-avatar">A</div><div><div class="rev-name">AMANDA T.</div><div class="rev-source">Google Review &middot; Jackson, MO</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"I was skeptical about mobile detailing but Brecker exceeded every expectation. My SUV looks like it just rolled off the showroom floor."</p><div class="rev-author"><div class="rev-avatar">M</div><div><div class="rev-name">MIKE H.</div><div class="rev-source">Google Review</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"Best investment I've made for my car. The ceramic sealant add-on is worth every penny — still beading water three months later."</p><div class="rev-author"><div class="rev-avatar">C</div><div><div class="rev-name">CERAMIC CLIENT</div><div class="rev-source">Google Review</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"The headlight restoration was incredible — went from foggy yellow to crystal clear. Night driving is a completely different experience now."</p><div class="rev-author"><div class="rev-avatar">T</div><div><div class="rev-name">TOM K.</div><div class="rev-source">Google Review</div></div></div></div>
+      <div class="rev-card"><span class="rev-stars">★★★★★</span><p class="rev-text">"Booked him for a full detail on my wife's car as a surprise. She was absolutely blown away. Will definitely be a repeat customer."</p><div class="rev-author"><div class="rev-avatar">B</div><div><div class="rev-name">BRAD L.</div><div class="rev-source">Facebook Review</div></div></div></div>
     </div>
   </div>
 </section>
-<!-- ===== PROCESS ===== -->
+<!-- HOW IT WORKS -->
 <style>
-.process{background:var(--dark2);padding:8rem 5%}
-.process-steps{max-width:1000px;margin:4rem auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+.process{background:var(--dark2);padding:6rem 4%}
+.process-steps{max-width:960px;margin:3.5rem auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
 .p-step{position:relative}
-.p-step::after{content:'';position:absolute;top:24px;left:calc(50% + 30px);width:calc(100% - 60px);height:2px;background:rgba(255,255,255,.07)}
-.p-step:last-child::after{display:none}
+.p-step:not(:last-child)::after{content:'';position:absolute;top:24px;left:calc(50% + 28px);width:calc(100% - 56px);height:1px;background:rgba(255,255,255,.08)}
 .p-num{width:48px;height:48px;border-radius:50%;border:2px solid var(--blue);display:grid;place-items:center;margin:0 auto 1.2rem;font-family:var(--display);font-size:1.3rem;color:var(--blue2);background:rgba(21,104,196,.1)}
-.p-title{font-family:var(--display);font-size:1.25rem;color:#fff;letter-spacing:.06em;margin-bottom:.5rem}
-.p-desc{font-size:.75rem;line-height:1.7;color:rgba(255,255,255,.38)}
+.p-title{font-family:var(--display);font-size:1.2rem;color:#fff;letter-spacing:.06em;margin-bottom:.5rem}
+.p-desc{font-size:.73rem;line-height:1.72;color:rgba(255,255,255,.35)}
 </style>
 <section class="process">
   <div class="sec-head">
-    <span class="sec-label">How It Works</span>
-    <h2 class="sec-h2" style="color:#fff">FOUR EASY STEPS</h2>
+    <span class="sec-label">Simple Process</span>
+    <h2 class="sec-h2" style="color:#fff">HOW IT WORKS</h2>
+    <p class="sec-sub">Four steps to a showroom finish — we handle everything</p>
   </div>
   <div class="process-steps">
-    <div class="p-step"><div class="p-num">1</div><div class="p-title">BOOK</div><p class="p-desc">Call or text to schedule. We'll confirm your appointment within the hour.</p></div>
-    <div class="p-step"><div class="p-num">2</div><div class="p-title">WE ARRIVE</div><p class="p-desc">Brecker comes to your home or office with everything needed — no drop-off required.</p></div>
-    <div class="p-step"><div class="p-num">3</div><div class="p-title">WE DETAIL</div><p class="p-desc">Professional-grade products and equipment. Every detail done right, every time.</p></div>
-    <div class="p-step"><div class="p-num">4</div><div class="p-title">ENJOY</div><p class="p-desc">Drive away in a showroom-quality vehicle. We guarantee you'll be impressed.</p></div>
+    <div class="p-step"><div class="p-num">1</div><div class="p-title">CALL US</div><p class="p-desc">Call or text (573) 450-3156. We'll confirm your appointment within the hour.</p></div>
+    <div class="p-step"><div class="p-num">2</div><div class="p-title">WE ARRIVE</div><p class="p-desc">Brecker comes to your home or office in Jackson or Cape Girardeau with all equipment.</p></div>
+    <div class="p-step"><div class="p-num">3</div><div class="p-title">WE DETAIL</div><p class="p-desc">Professional-grade products. Every detail done right. Zero shortcuts, every time.</p></div>
+    <div class="p-step"><div class="p-num">4</div><div class="p-title">YOU SHINE</div><p class="p-desc">Drive away in a showroom-quality vehicle. 100% satisfaction guaranteed.</p></div>
   </div>
 </section>
 
-<!-- ===== CTA ===== -->
+<!-- CTA -->
 <style>
-.cta-section{background:var(--blue);padding:7rem 5%;text-align:center;position:relative;overflow:hidden}
-.cta-section::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=40') center/cover no-repeat;opacity:.08}
-.cta-h2{font-family:var(--display);font-size:clamp(2.5rem,5vw,5rem);color:#fff;line-height:.95;letter-spacing:.04em;margin-bottom:1.2rem;position:relative}
-.cta-p{font-size:.95rem;color:rgba(255,255,255,.75);max-width:500px;margin:0 auto 2.5rem;position:relative;line-height:1.7}
-.btn-white{display:inline-flex;align-items:center;gap:.6rem;background:#fff;color:var(--blue);text-decoration:none;font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:1rem 2.6rem;border-radius:3px;position:relative;transition:transform .2s,box-shadow .2s}
-.btn-white:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.25)}
-.cta-phone{display:block;font-family:var(--display);font-size:clamp(1.8rem,4vw,3.2rem);color:rgba(255,255,255,.9);letter-spacing:.08em;margin-top:1.8rem;position:relative;text-decoration:none}
+.cta-section{background:var(--blue);padding:6rem 4%;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=40') center/cover no-repeat;opacity:.07}
+.cta-h2{font-family:var(--display);font-size:clamp(2.5rem,5vw,5rem);color:#fff;line-height:.95;letter-spacing:.04em;margin-bottom:1rem;position:relative}
+.cta-p{font-size:.92rem;color:rgba(255,255,255,.72);max-width:500px;margin:0 auto 2.2rem;position:relative;line-height:1.72}
+.btn-white{display:inline-flex;align-items:center;gap:.5rem;background:#fff;color:var(--blue);text-decoration:none;font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:1rem 2.4rem;border-radius:3px;position:relative;transition:transform .2s,box-shadow .2s}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,0,0,.22)}
+.cta-phone{display:block;font-family:var(--display);font-size:clamp(1.8rem,4vw,3.2rem);color:rgba(255,255,255,.88);letter-spacing:.08em;margin-top:1.6rem;position:relative;text-decoration:none;transition:color .2s}
 .cta-phone:hover{color:#fff}
-.cta-area{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:.6rem;position:relative}
+.cta-hours{display:flex;justify-content:center;gap:2.5rem;margin-top:1.2rem;position:relative;flex-wrap:wrap}
+.cta-hours-item{text-align:center}
+.cta-hours-day{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:700}
+.cta-hours-time{font-family:var(--display);font-size:1rem;color:rgba(255,255,255,.8);letter-spacing:.06em}
+.cta-area{font-size:.67rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:1.5rem;position:relative}
 </style>
 <section id="contact" class="cta-section">
   <h2 class="cta-h2">READY TO BOOK?</h2>
-  <p class="cta-p">Serving Jackson, Cape Girardeau, and surrounding Southeast Missouri. Call or text today — we'll get you scheduled fast.</p>
-  <a href="tel:5734503156" class="btn-white">CALL TO BOOK NOW &rarr;</a>
+  <p class="cta-p">Serving Jackson, Cape Girardeau, and surrounding Southeast Missouri. Call or text and we'll get you on the schedule fast — often same week or sooner.</p>
+  <a href="tel:5734503156" class="btn-white">CALL NOW &rarr;</a>
   <a href="tel:5734503156" class="cta-phone">(573) 450-3156</a>
+  <div class="cta-hours">
+    <div class="cta-hours-item"><div class="cta-hours-day">Mon–Fri</div><div class="cta-hours-time">8AM–6PM</div></div>
+    <div class="cta-hours-item"><div class="cta-hours-day">Saturday</div><div class="cta-hours-time">8AM–4PM</div></div>
+    <div class="cta-hours-item"><div class="cta-hours-day">Sunday</div><div class="cta-hours-time">By Request</div></div>
+  </div>
   <p class="cta-area">Jackson &middot; Cape Girardeau &middot; Southeast Missouri</p>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <style>
-footer{background:var(--ink);padding:4rem 5% 2.5rem;color:rgba(255,255,255,.35)}
+footer{background:var(--ink);padding:4rem 4% 2rem;color:rgba(255,255,255,.32)}
 .footer-inner{max-width:1200px;margin:0 auto}
-.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:3rem;flex-wrap:wrap;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:2rem}
-.footer-logo{font-family:var(--display);font-size:1.5rem;color:#fff;letter-spacing:.06em}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:3rem;flex-wrap:wrap;padding-bottom:2.2rem;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:1.8rem}
+.footer-logo{font-family:var(--display);font-size:1.45rem;color:#fff;letter-spacing:.06em}
 .footer-logo span{color:var(--blue2)}
-.footer-tagline{font-size:.75rem;color:rgba(255,255,255,.3);margin-top:.4rem;font-style:italic;font-family:var(--serif)}
-.footer-links{display:flex;flex-direction:column;gap:.6rem}
-.footer-links a{color:rgba(255,255,255,.35);text-decoration:none;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
+.footer-tagline{font-size:.72rem;color:rgba(255,255,255,.28);margin-top:.35rem;font-style:italic;font-family:var(--serif)}
+.footer-links{display:flex;flex-direction:column;gap:.55rem}
+.footer-links a{color:rgba(255,255,255,.32);text-decoration:none;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
 .footer-links a:hover{color:#fff}
-.footer-contact a{display:block;color:rgba(255,255,255,.35);text-decoration:none;font-size:.8rem;margin-bottom:.5rem;transition:color .2s}
+.footer-contact a{display:block;color:rgba(255,255,255,.32);text-decoration:none;font-size:.78rem;margin-bottom:.45rem;transition:color .2s}
 .footer-contact a:hover{color:#fff}
-.footer-bot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase}
-.footer-bot a{color:rgba(255,255,255,.25);text-decoration:none}
+.footer-hours{font-size:.72rem;line-height:1.8;color:rgba(255,255,255,.28)}
+.footer-bot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.63rem;letter-spacing:.1em;text-transform:uppercase}
 </style>
 <footer>
   <div class="footer-inner">
@@ -726,6 +674,12 @@ footer{background:var(--ink);padding:4rem 5% 2.5rem;color:rgba(255,255,255,.35)}
         <a href="#">Jackson &amp; Cape Girardeau, MO</a>
         <a href="#">Southeast Missouri</a>
       </div>
+      <div class="footer-hours">
+        <strong style="color:rgba(255,255,255,.45);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase">Hours</strong><br>
+        Mon–Fri: 8AM–6PM<br>
+        Saturday: 8AM–4PM<br>
+        Sunday: By Request
+      </div>
     </div>
     <div class="footer-bot">
       <span>&copy; 2025 Jackson Auto Glow &mdash; All Rights Reserved</span>
@@ -736,26 +690,23 @@ footer{background:var(--ink);padding:4rem 5% 2.5rem;color:rgba(255,255,255,.35)}
 
 <!-- Floating CTA -->
 <style>
-.float-cta{position:fixed;bottom:2rem;right:2rem;z-index:998;background:var(--blue);color:#fff;text-decoration:none;font-family:var(--display);font-size:1.05rem;letter-spacing:.12em;padding:.75rem 1.5rem;border-radius:50px;box-shadow:0 8px 28px rgba(21,104,196,.5);display:flex;align-items:center;gap:.5rem;transition:transform .2s,box-shadow .2s}
-.float-cta:hover{transform:translateY(-3px);box-shadow:0 14px 38px rgba(21,104,196,.6)}
+.float-cta{position:fixed;bottom:1.8rem;right:1.8rem;z-index:998;background:var(--blue);color:#fff;text-decoration:none;font-family:var(--display);font-size:1rem;letter-spacing:.1em;padding:.7rem 1.4rem;border-radius:50px;box-shadow:0 8px 26px rgba(21,104,196,.5);display:flex;align-items:center;gap:.45rem;transition:transform .2s,box-shadow .2s}
+.float-cta:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(21,104,196,.6)}
 </style>
 <a href="tel:5734503156" class="float-cta">CALL TO BOOK &rarr;</a>
 
 <script>
-// Dismiss intro
 function dismissIntro(){
-  const splash = document.getElementById('intro-splash');
-  if(splash){ splash.classList.add('fade-out'); setTimeout(()=>splash.remove(),900); }
+  var splash=document.getElementById('intro-splash');
+  if(splash){splash.classList.add('fade-out');setTimeout(function(){splash.remove()},900);}
   document.body.style.overflow='';
 }
-// Auto-dismiss after 3.2 seconds
 document.addEventListener('DOMContentLoaded',function(){
   document.body.style.overflow='hidden';
-  setTimeout(dismissIntro, 3200);
-  // Nav scroll
-  const nav = document.getElementById('nav');
+  setTimeout(dismissIntro,3300);
+  var nav=document.getElementById('nav');
   window.addEventListener('scroll',function(){
-    nav.classList.toggle('stuck', window.scrollY > 60);
+    nav.classList.toggle('stuck',window.scrollY>50);
   });
 });
 </script>
