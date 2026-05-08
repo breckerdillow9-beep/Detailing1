@@ -63,10 +63,11 @@ transition:background .3s,box-shadow .3s;
 .hero{position:relative;height:100vh;min-height:680px;overflow:hidden;display:flex;align-items:flex-end;background:#06101E}
 .hero-img{
 position:absolute;inset:0;
-background:url('hero-car.jpg') center/cover no-repeat;
-transform:scale(1.07);animation:heroZoom 14s ease-out forwards;
+background:url('hero-car.jpg') center top/cover no-repeat;
+transform:scale(1.18);animation:heroZoom 22s cubic-bezier(0.25,0.1,0.25,1) forwards;
+will-change:transform;
 }
-@keyframes heroZoom{0%{transform:scale(1.07)}100%{transform:scale(1)}}
+@keyframes heroZoom{0%{transform:scale(1.18)}60%{transform:scale(1.06)}100%{transform:scale(1)}}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.96) 0%,rgba(0,0,0,.45) 40%,rgba(0,0,0,.2) 65%,rgba(0,0,0,.55) 100%)}
 .hero-side-bar{position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(to bottom,transparent,var(--blue),transparent);opacity:.9}
 .hero-inner{position:relative;z-index:2;width:100%;max-width:1280px;margin:0 auto;padding:88px 4% 70px}
